@@ -45,13 +45,8 @@ const App = () => {
       })
     }, 4000)
 
-    const batteryDecay = setInterval(() => {
-      setBatteryLevel(prev => Math.max(prev - 1, 0))
-    }, 5000)
-
     return () => {
       clearInterval(interval)
-      clearInterval(batteryDecay)
     }
   }, [])
 
