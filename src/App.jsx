@@ -4,6 +4,7 @@ import './App.css'
 const App = () => {
   const [currentPage, setCurrentPage] = useState('home')
   const [scrolled, setScrolled] = useState(false)
+  const [showModal, setShowModal] = useState(false)
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -12,6 +13,17 @@ const App = () => {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
+  const handleGetStarted = () => {
+    setShowModal(true)
+  }
 
   return (
     <div className="website">
@@ -29,7 +41,7 @@ const App = () => {
             <li><a href="#impact" onClick={() => setCurrentPage('impact')}>Impact</a></li>
             <li><a href="#contact" onClick={() => setCurrentPage('contact')}>Contact</a></li>
           </ul>
-          <button className="cta-button">Get Started</button>
+          <button className="cta-button" onClick={handleGetStarted}>Get Started</button>
         </div>
       </nav>
 
@@ -45,8 +57,8 @@ const App = () => {
               BhashaSetu is revolutionizing language preservation by collecting and documenting rare and endangered languages with AI-powered robots.
             </p>
             <div className="hero-buttons">
-              <button className="btn btn-primary">Start Collection</button>
-              <button className="btn btn-secondary">Learn More</button>
+              <button className="btn btn-primary" onClick={handleGetStarted}>Start Collection</button>
+              <button className="btn btn-secondary" onClick={() => scrollToSection('features')}>Learn More</button>
             </div>
           </div>
           <div className="hero-visual">
@@ -82,7 +94,7 @@ const App = () => {
       </section>
 
       {/* Features Section */}
-      <section className="features-section">
+      <section id="features" className="features-section">
         <h2 className="section-title">Key Features</h2>
         <div className="features-grid">
           <div className="feature-card">
@@ -235,8 +247,8 @@ const App = () => {
         <h2>Ready to Preserve Languages?</h2>
         <p>Join us in our mission to document and preserve endangered languages</p>
         <div className="cta-buttons">
-          <button className="btn btn-primary btn-large">Get Started Today</button>
-          <button className="btn btn-secondary btn-large">Schedule a Demo</button>
+          <button className="btn btn-primary btn-large" onClick={handleGetStarted}>Get Started Today</button>
+          <button className="btn btn-secondary btn-large" onClick={() => alert('Demo scheduled! We will contact you soon.')}>Schedule a Demo</button>
         </div>
       </section>
 
@@ -269,6 +281,27 @@ const App = () => {
           <p>&copy; 2024 BhashaSetu. Preserving Languages for Tomorrow.</p>
         </div>
       </footer>
+
+      {/* Modal */}
+      {showModal && (
+        <div className="modal-overlay" onClick={() => setShowModal(false)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={() => setShowModal(false)}>×</button>
+            <h2>Get Started with BhashaSetu</h2>
+            <p>Join us in preserving endangered languages. Fill in your details below:</p>
+            <form onSubmit={(e) => {
+              e.preventDefault()
+              alert('Thank you! We will contact you soon.')
+              setShowModal(false)
+            }}>
+              <input type="text" placeholder="Your Name" required />
+              <input type="email" placeholder="Your Email" required />
+              <textarea placeholder="Tell us about your interest..." rows="4"></textarea>
+              <button type="submit" className="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
