@@ -7,7 +7,7 @@ const App = () => {
   const [recordingMode, setRecordingMode] = useState('auto')
   const [volume, setVolume] = useState(75)
   const [sensitivity, setSensitivity] = useState(60)
-  const [language, setLanguage] = useState('hindi')
+  const [language, setLanguage] = useState('varli-hindi')
   const [storageUsed, setStorageUsed] = useState(65)
   const [batteryLevel, setBatteryLevel] = useState(78)
   const [autoSave, setAutoSave] = useState(true)
@@ -190,10 +190,8 @@ const App = () => {
                 className="select-input"
                 disabled={!robotPower}
               >
-                <option value="hindi">Hindi</option>
+                <option value="varli-hindi">Varli Hindi</option>
                 <option value="english">English</option>
-                <option value="marathi">Marathi</option>
-                <option value="tamil">Tamil</option>
               </select>
             </div>
             <div className="storage-display">
