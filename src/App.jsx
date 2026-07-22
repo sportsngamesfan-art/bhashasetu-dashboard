@@ -287,8 +287,57 @@ const App = () => {
         <div className="modal-overlay" onClick={() => setShowModal(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="modal-close" onClick={() => setShowModal(false)}>×</button>
-            <h2>Get Started with BhashaSetu</h2>
-            <p>Join us in preserving endangered languages. Fill in your details below:</p>
+            <h2>Connect with Us</h2>
+            <p>Choose how you'd like to get started with BhashaSetu:</p>
+
+            <div className="contact-options">
+              <a href="https://wa.me/919876543210?text=Hi%20BhashaSetu!%20I'm%20interested%20in%20learning%20more%20about%20language%20preservation."
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 className="contact-option whatsapp">
+                <span className="contact-icon">💬</span>
+                <span className="contact-text">
+                  <strong>WhatsApp Chat</strong>
+                  <small>Quick message to our team</small>
+                </span>
+                <span className="arrow">→</span>
+              </a>
+
+              <a href="mailto:hello@bhashasetu.org?subject=BhashaSetu%20Demo%20Request"
+                 className="contact-option email">
+                <span className="contact-icon">✉️</span>
+                <span className="contact-text">
+                  <strong>Send Email</strong>
+                  <small>Get detailed info</small>
+                </span>
+                <span className="arrow">→</span>
+              </a>
+
+              <a href="tel:+919876543210"
+                 className="contact-option phone">
+                <span className="contact-icon">📞</span>
+                <span className="contact-text">
+                  <strong>Call Us</strong>
+                  <small>Talk to our team</small>
+                </span>
+                <span className="arrow">→</span>
+              </a>
+
+              <a href="https://cal.com/bhashasetu/demo"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 className="contact-option calendar">
+                <span className="contact-icon">📅</span>
+                <span className="contact-text">
+                  <strong>Book a Demo</strong>
+                  <small>Schedule a meeting</small>
+                </span>
+                <span className="arrow">→</span>
+              </a>
+            </div>
+
+            <div className="modal-divider">Or fill the form below:</div>
+
             <form onSubmit={(e) => {
               e.preventDefault()
               alert('Thank you! We will contact you soon.')
@@ -296,7 +345,14 @@ const App = () => {
             }}>
               <input type="text" placeholder="Your Name" required />
               <input type="email" placeholder="Your Email" required />
-              <textarea placeholder="Tell us about your interest..." rows="4"></textarea>
+              <select required>
+                <option value="">Select your interest...</option>
+                <option value="demo">Schedule a Demo</option>
+                <option value="partnership">Partnership Inquiry</option>
+                <option value="research">Research Collaboration</option>
+                <option value="other">Other</option>
+              </select>
+              <textarea placeholder="Tell us about your interest..." rows="3"></textarea>
               <button type="submit" className="btn btn-primary">Submit</button>
             </form>
           </div>
