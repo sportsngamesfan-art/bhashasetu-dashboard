@@ -663,7 +663,22 @@ body {
 .settings-view h2 {
   font-family: 'Poppins', sans-serif;
   font-size: 1.8em;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
+  color: #E8E8E8;
+}
+
+.settings-section {
+  margin-bottom: 32px;
+}
+
+.settings-section h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1em;
+  color: #C4A747;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid rgba(196, 167, 71, 0.2);
+  font-weight: 700;
 }
 
 .settings-list {
@@ -678,26 +693,196 @@ body {
   border-radius: 12px;
   border: 1px solid rgba(196, 167, 71, 0.15);
   display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.2s ease;
+}
+
+.setting-item:hover {
+  border-color: rgba(196, 167, 71, 0.3);
+}
+
+.setting-label {
+  display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 12px;
+}
+
+.label-text {
+  color: #E8E8E8;
+  font-weight: 600;
+  font-size: 0.95em;
+}
+
+.label-value {
+  color: #C4A747;
+  font-weight: 700;
+  font-size: 0.85em;
+  background: rgba(196, 167, 71, 0.1);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.select-setting {
+  padding: 10px 12px;
+  background: rgba(196, 167, 71, 0.1);
+  border: 1px solid rgba(196, 167, 71, 0.2);
+  border-radius: 8px;
+  color: #C4A747;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.select-setting:hover,
+.select-setting:focus {
+  border-color: rgba(196, 167, 71, 0.4);
+  background: rgba(196, 167, 71, 0.15);
+  outline: none;
+}
+
+.select-setting option {
+  background: #1A1F26;
+  color: #E8E8E8;
+}
+
+.setting-toggle {
+  background: linear-gradient(135deg, #1A1F26 0%, #232A33 100%);
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(196, 167, 71, 0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.setting-toggle:hover {
+  border-color: rgba(196, 167, 71, 0.3);
+}
+
+.toggle-label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.toggle-label span:first-child {
+  color: #E8E8E8;
+  font-weight: 600;
+  font-size: 0.95em;
+}
+
+.toggle-desc {
+  color: #909090;
+  font-size: 0.85em;
+  font-weight: 400;
 }
 
 .toggle-switch {
-  padding: 6px 14px;
-  border: 1px solid rgba(196, 167, 71, 0.2);
+  padding: 8px 16px;
+  border: 2px solid rgba(196, 167, 71, 0.2);
   border-radius: 20px;
   background: rgba(196, 167, 71, 0.1);
   color: #A0A0A0;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.8em;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-width: 70px;
+  text-align: center;
+}
+
+.toggle-switch:hover {
+  border-color: rgba(196, 167, 71, 0.4);
 }
 
 .toggle-switch.active {
   background: linear-gradient(135deg, #4CAF50, #66BB6A);
   border-color: #4CAF50;
   color: white;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.2);
+}
+
+/* About Section */
+.about-list {
+  background: linear-gradient(135deg, #1A1F26 0%, #232A33 100%);
+  border-radius: 12px;
+  border: 1px solid rgba(196, 167, 71, 0.15);
+  overflow: hidden;
+}
+
+.about-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(196, 167, 71, 0.1);
+  font-size: 0.95em;
+}
+
+.about-item:last-child {
+  border-bottom: none;
+}
+
+.about-item span:first-child {
+  color: #909090;
+  font-weight: 500;
+}
+
+.about-value {
+  color: #C4A747;
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+}
+
+/* Settings Actions */
+.settings-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.btn-settings {
+  flex: 1;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 0.95em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-settings.primary {
+  background: linear-gradient(135deg, #C4A747, #D4B76C);
+  color: #0D1117;
+  box-shadow: 0 4px 15px rgba(196, 167, 71, 0.3);
+}
+
+.btn-settings.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(196, 167, 71, 0.4);
+}
+
+.btn-settings.secondary {
+  background: rgba(196, 167, 71, 0.1);
+  color: #C4A747;
+  border: 2px solid rgba(196, 167, 71, 0.3);
+}
+
+.btn-settings.secondary:hover {
+  background: rgba(196, 167, 71, 0.2);
+  border-color: rgba(196, 167, 71, 0.5);
 }
 
 /* Bottom Navigation */

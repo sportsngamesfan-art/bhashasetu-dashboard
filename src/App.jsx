@@ -12,6 +12,11 @@ const App = () => {
   const [storageUsed, setStorageUsed] = useState(65)
   const [batteryLevel, setBatteryLevel] = useState(78)
   const [totalRecordings, setTotalRecordings] = useState(1247)
+  const [autoSave, setAutoSave] = useState(true)
+  const [notifications, setNotifications] = useState(true)
+  const [darkTheme, setDarkTheme] = useState(true)
+  const [autoUpload, setAutoUpload] = useState(false)
+  const [quality, setQuality] = useState('high')
   const [logs, setLogs] = useState([
     { time: '14:32', message: 'Recording completed - 5 phrases' },
     { time: '14:30', message: 'Started recording session' },
@@ -273,19 +278,111 @@ const App = () => {
         {currentPage === 'settings' && (
           <div className="settings-view">
             <h2>⚙️ Settings</h2>
-            <div className="settings-list">
-              <div className="setting-item">
-                <span>Auto-Save Recordings</span>
-                <button className="toggle-switch active">ON</button>
+
+            <div className="settings-section">
+              <h3>Recording Settings</h3>
+              <div className="settings-list">
+                <div className="setting-item">
+                  <div className="setting-label">
+                    <span className="label-text">Recording Quality</span>
+                    <span className="label-value">{quality.toUpperCase()}</span>
+                  </div>
+                  <select
+                    value={quality}
+                    onChange={(e) => setQuality(e.target.value)}
+                    className="select-setting"
+                  >
+                    <option value="low">Low (Smaller files)</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High (Best quality)</option>
+                  </select>
+                </div>
+
+                <div className="setting-toggle">
+                  <div className="toggle-label">
+                    <span>💾 Auto-Save Recordings</span>
+                    <span className="toggle-desc">Automatically save after each recording</span>
+                  </div>
+                  <button
+                    className={`toggle-switch ${autoSave ? 'active' : ''}`}
+                    onClick={() => setAutoSave(!autoSave)}
+                  >
+                    {autoSave ? 'ON' : 'OFF'}
+                  </button>
+                </div>
+
+                <div className="setting-toggle">
+                  <div className="toggle-label">
+                    <span>☁️ Auto-Upload</span>
+                    <span className="toggle-desc">Upload recordings to cloud storage</span>
+                  </div>
+                  <button
+                    className={`toggle-switch ${autoUpload ? 'active' : ''}`}
+                    onClick={() => setAutoUpload(!autoUpload)}
+                  >
+                    {autoUpload ? 'ON' : 'OFF'}
+                  </button>
+                </div>
               </div>
-              <div className="setting-item">
-                <span>Notifications</span>
-                <button className="toggle-switch active">ON</button>
+            </div>
+
+            <div className="settings-section">
+              <h3>Notifications</h3>
+              <div className="settings-list">
+                <div className="setting-toggle">
+                  <div className="toggle-label">
+                    <span>🔔 Enable Notifications</span>
+                    <span className="toggle-desc">Get alerts for important events</span>
+                  </div>
+                  <button
+                    className={`toggle-switch ${notifications ? 'active' : ''}`}
+                    onClick={() => setNotifications(!notifications)}
+                  >
+                    {notifications ? 'ON' : 'OFF'}
+                  </button>
+                </div>
               </div>
-              <div className="setting-item">
-                <span>Dark Theme</span>
-                <button className="toggle-switch active">ON</button>
+            </div>
+
+            <div className="settings-section">
+              <h3>Appearance</h3>
+              <div className="settings-list">
+                <div className="setting-toggle">
+                  <div className="toggle-label">
+                    <span>🌙 Dark Theme</span>
+                    <span className="toggle-desc">Use dark mode (currently enabled)</span>
+                  </div>
+                  <button
+                    className={`toggle-switch ${darkTheme ? 'active' : ''}`}
+                    onClick={() => setDarkTheme(!darkTheme)}
+                  >
+                    {darkTheme ? 'ON' : 'OFF'}
+                  </button>
+                </div>
               </div>
+            </div>
+
+            <div className="settings-section">
+              <h3>About</h3>
+              <div className="about-list">
+                <div className="about-item">
+                  <span>App Version</span>
+                  <span className="about-value">v1.0.0</span>
+                </div>
+                <div className="about-item">
+                  <span>Robot Firmware</span>
+                  <span className="about-value">v2.1.0</span>
+                </div>
+                <div className="about-item">
+                  <span>Device ID</span>
+                  <span className="about-value">BSR-00001234</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="settings-actions">
+              <button className="btn-settings primary">Save Settings</button>
+              <button className="btn-settings secondary">Reset to Defaults</button>
             </div>
           </div>
         )}
