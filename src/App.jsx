@@ -41,10 +41,10 @@ const App = () => {
           </div>
           <ul className="nav-links">
             <li><a href="#home" onClick={() => setCurrentPage('home')}>Home</a></li>
-            <li><a href="#about" onClick={() => setCurrentPage('about')}>About</a></li>
+            <li><a href="#controller" onClick={() => {setCurrentPage('controller'); scrollToSection('controller')}}>Controller</a></li>
             <li><a href="#features" onClick={() => setCurrentPage('features')}>Features</a></li>
-            <li><a href="#impact" onClick={() => setCurrentPage('impact')}>Impact</a></li>
-            <li><a href="#contact" onClick={() => setCurrentPage('contact')}>Contact</a></li>
+            <li><a href="#centres" onClick={() => setCurrentPage('centres')}>Centres</a></li>
+            <li><a href="#about" onClick={() => setCurrentPage('about')}>About</a></li>
           </ul>
           <button className="theme-toggle" onClick={() => setIsDarkMode(!isDarkMode)}>
             {isDarkMode ? '☀️' : '🌙'}
@@ -169,7 +169,7 @@ const App = () => {
       </section>
 
       {/* Robot Controller */}
-      <section className="robot-controller-section">
+      <section id="controller" className="robot-controller-section">
         <h2 className="section-title">Try Our Robot Controller</h2>
         <div className="controller-container">
           <div className="controller-panel">
