@@ -657,8 +657,8 @@ body {
   font-size: 0.95em;
 }
 
-/* Find Your Robot Centre Section */
-.centres-section {
+/* Find Your Robot Section */
+.find-robot-section {
   padding: 120px 40px;
   max-width: 1400px;
   margin: 0 auto;
@@ -672,97 +672,249 @@ body {
   margin-bottom: 60px;
 }
 
-.centres-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+.robot-finder {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
-.centre-card {
+.robot-search-form {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.search-container {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 14px 20px;
   background: linear-gradient(135deg, #1A1F26 0%, #232A33 100%);
-  border: 1px solid rgba(196, 167, 71, 0.15);
+  border: 2px solid rgba(196, 167, 71, 0.3);
+  border-radius: 12px;
+  color: #E8E8E8;
+  font-size: 1em;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: rgba(196, 167, 71, 0.8);
+  box-shadow: 0 0 20px rgba(196, 167, 71, 0.2);
+  background: linear-gradient(135deg, #1F252D 0%, #272F38 100%);
+}
+
+.search-input::placeholder {
+  color: #606060;
+}
+
+.search-button {
+  padding: 14px 32px;
+  background: linear-gradient(135deg, #C4A747, #D4B76C);
+  color: #0D1117;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.search-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(196, 167, 71, 0.3);
+}
+
+.search-results {
+  animation: slideUp 0.4s ease;
+}
+
+.search-results h3 {
+  font-size: 1.3em;
+  color: #E8E8E8;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.robots-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.robot-card {
+  background: linear-gradient(135deg, #1A1F26 0%, #232A33 100%);
+  border: 2px solid rgba(196, 167, 71, 0.2);
   border-radius: 16px;
-  padding: 30px;
-  position: relative;
+  padding: 24px;
   transition: all 0.4s ease;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
 }
 
-.centre-card:hover {
+.robot-card:hover {
   transform: translateY(-8px);
-  border-color: rgba(196, 167, 71, 0.4);
-  box-shadow: 0 15px 40px rgba(196, 167, 71, 0.15);
+  border-color: rgba(196, 167, 71, 0.6);
+  box-shadow: 0 20px 50px rgba(196, 167, 71, 0.2);
 }
 
-.centre-badge {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  background: linear-gradient(135deg, #C4A747, #D4B76C);
-  color: #0D1117;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 0.75em;
-  font-weight: 700;
-  text-transform: uppercase;
+.robot-card.maintenance {
+  opacity: 0.7;
+  border-color: rgba(100, 100, 100, 0.3);
 }
 
-.centre-badge.coming {
-  background: #606060;
-  color: #E8E8E8;
-}
-
-.centre-header {
+.robot-header {
   display: flex;
-  align-items: center;
+  justify-content: space-between;
+  align-items: flex-start;
   gap: 12px;
 }
 
-.centre-icon {
-  font-size: 2em;
-}
-
-.centre-header h3 {
-  font-size: 1.3em;
-  font-weight: 700;
+.robot-info h4 {
+  font-size: 1.2em;
   color: #E8E8E8;
+  margin-bottom: 6px;
 }
 
-.centre-details {
+.robot-address {
+  color: #909090;
+  font-size: 0.9em;
+}
+
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.8em;
+  white-space: nowrap;
+}
+
+.status-badge.active {
+  background: rgba(76, 175, 80, 0.2);
+  color: #4CAF50;
+}
+
+.status-badge.maintenance {
+  background: rgba(255, 152, 0, 0.2);
+  color: #FF9800;
+}
+
+.robot-details {
   display: flex;
   flex-direction: column;
+  gap: 12px;
+  padding: 12px 0;
+  border-top: 1px solid rgba(196, 167, 71, 0.1);
+  border-bottom: 1px solid rgba(196, 167, 71, 0.1);
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.detail-item .label {
+  color: #909090;
+  font-weight: 600;
+}
+
+.detail-item .value {
+  color: #C4A747;
+  font-weight: 600;
+}
+
+.robot-actions {
+  display: flex;
   gap: 10px;
 }
 
-.centre-details p {
-  color: #909090;
-  font-size: 0.95em;
-  line-height: 1.5;
-}
-
-.centre-description {
-  color: #C4A747;
-  font-weight: 500;
-}
-
-.centre-contact {
-  align-self: flex-start;
-  background: rgba(196, 167, 71, 0.2);
-  color: #C4A747;
-  padding: 8px 16px;
+.action-btn {
+  flex: 1;
+  padding: 10px;
+  background: rgba(196, 167, 71, 0.15);
+  border: 1px solid rgba(196, 167, 71, 0.3);
   border-radius: 8px;
+  color: #C4A747;
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.9em;
+  font-size: 0.85em;
+  text-align: center;
   transition: all 0.3s ease;
-  margin-top: 10px;
+  cursor: pointer;
 }
 
-.centre-contact:hover {
-  background: rgba(196, 167, 71, 0.4);
-  transform: translateX(4px);
+.action-btn:hover {
+  background: rgba(196, 167, 71, 0.3);
+  border-color: rgba(196, 167, 71, 0.6);
+  transform: translateY(-2px);
+}
+
+.no-results {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #1A1F26 0%, #232A33 100%);
+  border-radius: 16px;
+  border: 2px dashed rgba(196, 167, 71, 0.2);
+  animation: slideUp 0.4s ease;
+}
+
+.no-results p {
+  color: #909090;
+  font-size: 1.1em;
+  margin: 12px 0;
+}
+
+.no-results strong {
+  color: #C4A747;
+}
+
+.quick-tips {
+  text-align: center;
+}
+
+.quick-tips h3 {
+  font-size: 1.2em;
+  color: #E8E8E8;
+  margin-bottom: 30px;
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.tip-card {
+  background: linear-gradient(135deg, #1A1F26 0%, #232A33 100%);
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid rgba(196, 167, 71, 0.15);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.tip-card:hover {
+  border-color: rgba(196, 167, 71, 0.4);
+  transform: translateY(-4px);
+}
+
+.tip-icon {
+  font-size: 2em;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.tip-card p {
+  color: #E8E8E8;
+  font-weight: 500;
 }
 
 /* About Us Section */
@@ -1345,7 +1497,7 @@ body {
   .features-section,
   .how-it-works,
   .robot-controller-section,
-  .centres-section,
+  .find-robot-section,
   .about-section,
   .impact-section,
   .testimonials-section {
@@ -1355,6 +1507,10 @@ body {
   .controller-container {
     grid-template-columns: 1fr;
     gap: 30px;
+  }
+
+  .search-container {
+    flex-direction: column;
   }
 
   .steps {

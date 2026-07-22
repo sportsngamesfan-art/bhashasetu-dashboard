@@ -10,6 +10,38 @@ const App = () => {
   const [volume, setVolume] = useState(75)
   const [sensitivity, setSensitivity] = useState(60)
   const [selectedLanguage, setSelectedLanguage] = useState('varli-hindi')
+  const [searchLocation, setSearchLocation] = useState('')
+  const [foundRobots, setFoundRobots] = useState([])
+  const [searched, setSearched] = useState(false)
+
+  const robotLocations = {
+    'mumbai': [
+      { id: 1, name: 'BhashaSetu Robot #1', status: 'Active', languages: ['Varli Hindi', 'English'], distance: '2.3 km', address: 'Jamnabi Narsee School, Mumbai' },
+      { id: 2, name: 'BhashaSetu Robot #2', status: 'Active', languages: ['English', 'Marathi'], distance: '5.1 km', address: 'Central Library, Mumbai' }
+    ],
+    'delhi': [
+      { id: 3, name: 'BhashaSetu Robot #3', status: 'Active', languages: ['Multiple Languages'], distance: '1.8 km', address: 'Language Research Lab, Delhi' },
+      { id: 4, name: 'BhashaSetu Robot #4', status: 'Maintenance', languages: ['All'], distance: '8.2 km', address: 'University Campus, Delhi' }
+    ],
+    'bangalore': [
+      { id: 5, name: 'BhashaSetu Robot #5', status: 'Active', languages: ['Kannada', 'English'], distance: '3.5 km', address: 'Tech Park, Bangalore' }
+    ],
+    'pune': [
+      { id: 6, name: 'BhashaSetu Robot #6', status: 'Active', languages: ['Marathi', 'Hindi'], distance: '2.1 km', address: 'Education Centre, Pune' }
+    ]
+  }
+
+  const handleRobotSearch = (e) => {
+    e.preventDefault()
+    const query = searchLocation.toLowerCase().trim()
+    setSearched(true)
+
+    if (query in robotLocations) {
+      setFoundRobots(robotLocations[query])
+    } else {
+      setFoundRobots([])
+    }
+  }
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -228,55 +260,95 @@ const App = () => {
         </div>
       </section>
 
-      {/* Find Your Robot Centre */}
-      <section id="centres" className="centres-section">
-        <h2 className="section-title">Find Your Robot Mock Centre</h2>
-        <p className="section-subtitle">Visit our mock centres to experience BhashaSetu in action</p>
-        <div className="centres-grid">
-          <div className="centre-card">
-            <div className="centre-badge">Open</div>
-            <div className="centre-header">
-              <span className="centre-icon">🏢</span>
-              <h3>Jamnabi Narsee School</h3>
-            </div>
-            <div className="centre-details">
-              <p className="centre-location">📍 Mumbai, Maharashtra</p>
-              <p className="centre-hours">⏰ Mon-Fri: 10AM - 5PM</p>
-              <p className="centre-languages">🗣️ Varli Hindi, English</p>
-              <p className="centre-description">Our main demonstration centre with 3 active BhashaSetu robots</p>
-              <a href="tel:+919876543210" className="centre-contact">📞 Contact Us</a>
-            </div>
-          </div>
+      {/* Find Your Robot */}
+      <section id="centres" className="find-robot-section">
+        <h2 className="section-title">🔍 Find Your Robot</h2>
+        <p className="section-subtitle">Locate the nearest BhashaSetu robot in your area</p>
 
-          <div className="centre-card">
-            <div className="centre-badge">Open</div>
-            <div className="centre-header">
-              <span className="centre-icon">📚</span>
-              <h3>Language Research Lab</h3>
+        <div className="robot-finder">
+          <form onSubmit={handleRobotSearch} className="robot-search-form">
+            <div className="search-container">
+              <input
+                type="text"
+                placeholder="Enter city name (e.g., Mumbai, Delhi, Bangalore, Pune)"
+                value={searchLocation}
+                onChange={(e) => setSearchLocation(e.target.value)}
+                className="search-input"
+              />
+              <button type="submit" className="search-button">Search 🤖</button>
             </div>
-            <div className="centre-details">
-              <p className="centre-location">📍 Delhi, India</p>
-              <p className="centre-hours">⏰ Mon-Sat: 9AM - 6PM</p>
-              <p className="centre-languages">🗣️ Multiple Languages</p>
-              <p className="centre-description">Advanced research facility with expert linguists available</p>
-              <a href="tel:+919876543210" className="centre-contact">📞 Contact Us</a>
-            </div>
-          </div>
+          </form>
 
-          <div className="centre-card">
-            <div className="centre-badge">Coming Soon</div>
-            <div className="centre-header">
-              <span className="centre-icon">🌍</span>
-              <h3>Regional Centre - South</h3>
+          {searched && (
+            <div className="search-results">
+              {foundRobots.length > 0 ? (
+                <>
+                  <h3>Found {foundRobots.length} Robot{foundRobots.length !== 1 ? 's' : ''} in {searchLocation.charAt(0).toUpperCase() + searchLocation.slice(1)}</h3>
+                  <div className="robots-list">
+                    {foundRobots.map((robot) => (
+                      <div key={robot.id} className={`robot-card ${robot.status.toLowerCase()}`}>
+                        <div className="robot-header">
+                          <div className="robot-info">
+                            <h4>{robot.name}</h4>
+                            <p className="robot-address">📍 {robot.address}</p>
+                          </div>
+                          <div className={`status-badge ${robot.status.toLowerCase()}`}>
+                            {robot.status === 'Active' ? '✓ Active' : '🔧 Maintenance'}
+                          </div>
+                        </div>
+
+                        <div className="robot-details">
+                          <div className="detail-item">
+                            <span className="label">Languages:</span>
+                            <span className="value">{robot.languages.join(', ')}</span>
+                          </div>
+                          <div className="detail-item">
+                            <span className="label">Distance:</span>
+                            <span className="value">{robot.distance}</span>
+                          </div>
+                        </div>
+
+                        <div className="robot-actions">
+                          <a href={`tel:+919876543210`} className="action-btn">📞 Call</a>
+                          <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="action-btn">💬 WhatsApp</a>
+                          <a href={`https://maps.google.com/?q=${robot.address}`} target="_blank" rel="noopener noreferrer" className="action-btn">🗺️ Map</a>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              ) : (
+                <div className="no-results">
+                  <p>😔 No robots found in <strong>{searchLocation}</strong></p>
+                  <p>Try searching: <strong>Mumbai</strong>, <strong>Delhi</strong>, <strong>Bangalore</strong>, or <strong>Pune</strong></p>
+                </div>
+              )}
             </div>
-            <div className="centre-details">
-              <p className="centre-location">📍 Bangalore, Karnataka</p>
-              <p className="centre-hours">⏰ Opening in Q3 2024</p>
-              <p className="centre-languages">🗣️ Regional Languages</p>
-              <p className="centre-description">New facility bringing BhashaSetu to South India</p>
-              <a href="mailto:hello@bhashasetu.org" className="centre-contact">📧 Get Notified</a>
+          )}
+
+          {!searched && (
+            <div className="quick-tips">
+              <h3>Quick Search Tips:</h3>
+              <div className="tips-grid">
+                <div className="tip-card">
+                  <span className="tip-icon">🏙️</span>
+                  <p>Try: <strong>Mumbai</strong></p>
+                </div>
+                <div className="tip-card">
+                  <span className="tip-icon">🏙️</span>
+                  <p>Try: <strong>Delhi</strong></p>
+                </div>
+                <div className="tip-card">
+                  <span className="tip-icon">🏙️</span>
+                  <p>Try: <strong>Bangalore</strong></p>
+                </div>
+                <div className="tip-card">
+                  <span className="tip-icon">🏙️</span>
+                  <p>Try: <strong>Pune</strong></p>
+                </div>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </section>
 
