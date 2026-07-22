@@ -37,6 +37,34 @@ The application will open at `http://localhost:3000`
 npm run build
 ```
 
+## Deployment to Vercel
+
+### Option 1: Using Vercel CLI
+
+```bash
+npm i -g vercel
+vercel
+```
+
+### Option 2: Using GitHub Integration
+
+1. Push your code to GitHub
+2. Go to [vercel.com](https://vercel.com)
+3. Click "New Project"
+4. Import your GitHub repository
+5. Vercel will automatically detect it's a Vite project and configure it
+6. Click "Deploy"
+
+### Option 3: Manual GitHub Connection
+
+1. Push your repository to GitHub
+2. Visit [vercel.com/new](https://vercel.com/new)
+3. Select "Import Git Repository"
+4. Select your GitHub repo (`sportsngamesfan-art/bhashasetu-dashboard`)
+5. Click "Deploy"
+
+Your dashboard will be live at a URL like `https://bhashasetu-dashboard.vercel.app`
+
 ## Project Structure
 
 ```
