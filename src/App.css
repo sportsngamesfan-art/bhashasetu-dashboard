@@ -27,6 +27,57 @@ body {
   overflow-x: hidden;
 }
 
+.website.light-mode {
+  background: #F5F5F5;
+  color: #1a1a1a;
+}
+
+.website.light-mode body,
+.website.light-mode {
+  background: #F5F5F5;
+}
+
+.website.light-mode .navbar {
+  background: transparent;
+}
+
+.website.light-mode .navbar.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom-color: rgba(196, 167, 71, 0.2);
+}
+
+.website.light-mode .nav-brand,
+.website.light-mode .nav-links a {
+  color: #1a1a1a;
+}
+
+.website.light-mode section,
+.website.light-mode .testimonial,
+.website.light-mode .feature-card,
+.website.light-mode .team-card,
+.website.light-mode .centre-card,
+.website.light-mode .controller-panel {
+  background: white;
+  color: #1a1a1a;
+}
+
+.website.light-mode .section-title {
+  color: #1a1a1a;
+}
+
+.website.light-mode p,
+.website.light-mode .stat-label {
+  color: #555;
+}
+
+.website.light-mode .hero {
+  background: linear-gradient(135deg, #f0e6d2 0%, #ede0c8 100%);
+}
+
+.website.light-mode .cta-section {
+  background: linear-gradient(135deg, #C4A747 0%, #D4B76C 100%);
+}
+
 /* Navigation */
 .navbar {
   position: fixed;
@@ -98,6 +149,23 @@ body {
 
 .nav-links a:hover {
   color: #C4A747;
+}
+
+.theme-toggle {
+  background: none;
+  border: 2px solid rgba(196, 167, 71, 0.3);
+  color: #E8E8E8;
+  font-size: 1.2em;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-right: 16px;
+}
+
+.theme-toggle:hover {
+  border-color: rgba(196, 167, 71, 0.6);
+  background: rgba(196, 167, 71, 0.1);
 }
 
 .nav-links a::after {
@@ -428,6 +496,273 @@ body {
   font-size: 2em;
   color: #C4A747;
   font-weight: 800;
+}
+
+/* Robot Controller Section */
+.robot-controller-section {
+  padding: 120px 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.controller-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.controller-panel {
+  background: linear-gradient(135deg, #1A1F26 0%, #232A33 100%);
+  padding: 40px;
+  border-radius: 20px;
+  border: 2px solid rgba(196, 167, 71, 0.2);
+}
+
+.controller-display {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 30px;
+  border-radius: 16px;
+  margin-bottom: 30px;
+  border: 1px solid rgba(196, 167, 71, 0.1);
+}
+
+.robot-status {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.robot-icon {
+  font-size: 3em;
+  animation: float 3s ease-in-out infinite;
+}
+
+.status-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.status-label {
+  color: #909090;
+  font-size: 0.9em;
+}
+
+.status-value {
+  font-size: 1.3em;
+  font-weight: 700;
+  color: #909090;
+}
+
+.status-value.recording {
+  color: #FF6B6B;
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.controller-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.control-group label {
+  font-weight: 600;
+  color: #E8E8E8;
+  font-size: 0.9em;
+}
+
+.control-group select,
+.control-group input[type="range"] {
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(196, 167, 71, 0.2);
+  color: #E8E8E8;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.control-group input[type="range"] {
+  height: 6px;
+  padding: 0;
+}
+
+.control-group input[type="range"]:disabled,
+.control-group select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.record-button {
+  background: linear-gradient(135deg, #FF6B6B, #FF8C8C);
+  color: white;
+  border: none;
+  padding: 16px;
+  border-radius: 12px;
+  font-size: 1em;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  margin-top: 10px;
+}
+
+.record-button:hover:not(.recording) {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+}
+
+.record-button.recording {
+  animation: pulse 1s ease-in-out infinite;
+}
+
+.controller-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.controller-info h3 {
+  font-size: 1.8em;
+  font-weight: 800;
+  color: #E8E8E8;
+}
+
+.controller-info p {
+  color: #909090;
+  font-size: 1em;
+  line-height: 1.7;
+}
+
+.controller-info ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.controller-info li {
+  color: #E8E8E8;
+  font-weight: 500;
+  font-size: 0.95em;
+}
+
+/* Find Your Robot Centre Section */
+.centres-section {
+  padding: 120px 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, rgba(196, 167, 71, 0.05) 0%, rgba(212, 183, 108, 0.01) 100%);
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #909090;
+  font-size: 1.1em;
+  margin-bottom: 60px;
+}
+
+.centres-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.centre-card {
+  background: linear-gradient(135deg, #1A1F26 0%, #232A33 100%);
+  border: 1px solid rgba(196, 167, 71, 0.15);
+  border-radius: 16px;
+  padding: 30px;
+  position: relative;
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.centre-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(196, 167, 71, 0.4);
+  box-shadow: 0 15px 40px rgba(196, 167, 71, 0.15);
+}
+
+.centre-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: linear-gradient(135deg, #C4A747, #D4B76C);
+  color: #0D1117;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.75em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.centre-badge.coming {
+  background: #606060;
+  color: #E8E8E8;
+}
+
+.centre-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.centre-icon {
+  font-size: 2em;
+}
+
+.centre-header h3 {
+  font-size: 1.3em;
+  font-weight: 700;
+  color: #E8E8E8;
+}
+
+.centre-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.centre-details p {
+  color: #909090;
+  font-size: 0.95em;
+  line-height: 1.5;
+}
+
+.centre-description {
+  color: #C4A747;
+  font-weight: 500;
+}
+
+.centre-contact {
+  align-self: flex-start;
+  background: rgba(196, 167, 71, 0.2);
+  color: #C4A747;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9em;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.centre-contact:hover {
+  background: rgba(196, 167, 71, 0.4);
+  transform: translateX(4px);
 }
 
 /* About Us Section */
@@ -1009,10 +1344,17 @@ body {
 
   .features-section,
   .how-it-works,
+  .robot-controller-section,
+  .centres-section,
   .about-section,
   .impact-section,
   .testimonials-section {
     padding: 60px 20px;
+  }
+
+  .controller-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
   }
 
   .steps {

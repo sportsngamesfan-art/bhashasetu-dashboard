@@ -5,6 +5,11 @@ const App = () => {
   const [currentPage, setCurrentPage] = useState('home')
   const [scrolled, setScrolled] = useState(false)
   const [showModal, setShowModal] = useState(false)
+  const [isDarkMode, setIsDarkMode] = useState(true)
+  const [isRecording, setIsRecording] = useState(false)
+  const [volume, setVolume] = useState(75)
+  const [sensitivity, setSensitivity] = useState(60)
+  const [selectedLanguage, setSelectedLanguage] = useState('varli-hindi')
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -26,7 +31,7 @@ const App = () => {
   }
 
   return (
-    <div className="website">
+    <div className={`website ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
       {/* Navigation */}
       <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
         <div className="nav-container">
@@ -41,6 +46,9 @@ const App = () => {
             <li><a href="#impact" onClick={() => setCurrentPage('impact')}>Impact</a></li>
             <li><a href="#contact" onClick={() => setCurrentPage('contact')}>Contact</a></li>
           </ul>
+          <button className="theme-toggle" onClick={() => setIsDarkMode(!isDarkMode)}>
+            {isDarkMode ? '☀️' : '🌙'}
+          </button>
           <button className="cta-button" onClick={handleGetStarted}>Get Started</button>
         </div>
       </nav>
@@ -156,6 +164,118 @@ const App = () => {
             <div className="step-number">04</div>
             <h3>Preserve</h3>
             <p>Archive and study data</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Robot Controller */}
+      <section className="robot-controller-section">
+        <h2 className="section-title">Try Our Robot Controller</h2>
+        <div className="controller-container">
+          <div className="controller-panel">
+            <div className="controller-display">
+              <div className="robot-status">
+                <div className="robot-icon">🤖</div>
+                <div className="status-info">
+                  <p className="status-label">Robot Status</p>
+                  <p className={`status-value ${isRecording ? 'recording' : 'idle'}`}>
+                    {isRecording ? '● Recording' : '○ Idle'}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="controller-controls">
+              <div className="control-group">
+                <label>Recording Language</label>
+                <select value={selectedLanguage} onChange={(e) => setSelectedLanguage(e.target.value)} disabled={isRecording}>
+                  <option value="varli-hindi">Varli Hindi</option>
+                  <option value="english">English</option>
+                  <option value="marathi">Marathi</option>
+                  <option value="gujarati">Gujarati</option>
+                </select>
+              </div>
+
+              <div className="control-group">
+                <label>Volume: {volume}%</label>
+                <input type="range" min="0" max="100" value={volume} onChange={(e) => setVolume(e.target.value)} disabled={isRecording} />
+              </div>
+
+              <div className="control-group">
+                <label>Sensitivity: {sensitivity}%</label>
+                <input type="range" min="0" max="100" value={sensitivity} onChange={(e) => setSensitivity(e.target.value)} disabled={isRecording} />
+              </div>
+
+              <button
+                className={`record-button ${isRecording ? 'recording' : ''}`}
+                onClick={() => setIsRecording(!isRecording)}
+              >
+                {isRecording ? '⏹ Stop Recording' : '🎙️ Start Recording'}
+              </button>
+            </div>
+          </div>
+
+          <div className="controller-info">
+            <h3>Live Demo Controls</h3>
+            <p>Experience how our BhashaSetu robot works! Adjust the settings and start recording to see the robot in action.</p>
+            <ul>
+              <li>✓ Select your target language</li>
+              <li>✓ Adjust volume and sensitivity</li>
+              <li>✓ Start/stop recording with one click</li>
+              <li>✓ Real-time status monitoring</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Find Your Robot Centre */}
+      <section id="centres" className="centres-section">
+        <h2 className="section-title">Find Your Robot Mock Centre</h2>
+        <p className="section-subtitle">Visit our mock centres to experience BhashaSetu in action</p>
+        <div className="centres-grid">
+          <div className="centre-card">
+            <div className="centre-badge">Open</div>
+            <div className="centre-header">
+              <span className="centre-icon">🏢</span>
+              <h3>Jamnabi Narsee School</h3>
+            </div>
+            <div className="centre-details">
+              <p className="centre-location">📍 Mumbai, Maharashtra</p>
+              <p className="centre-hours">⏰ Mon-Fri: 10AM - 5PM</p>
+              <p className="centre-languages">🗣️ Varli Hindi, English</p>
+              <p className="centre-description">Our main demonstration centre with 3 active BhashaSetu robots</p>
+              <a href="tel:+919876543210" className="centre-contact">📞 Contact Us</a>
+            </div>
+          </div>
+
+          <div className="centre-card">
+            <div className="centre-badge">Open</div>
+            <div className="centre-header">
+              <span className="centre-icon">📚</span>
+              <h3>Language Research Lab</h3>
+            </div>
+            <div className="centre-details">
+              <p className="centre-location">📍 Delhi, India</p>
+              <p className="centre-hours">⏰ Mon-Sat: 9AM - 6PM</p>
+              <p className="centre-languages">🗣️ Multiple Languages</p>
+              <p className="centre-description">Advanced research facility with expert linguists available</p>
+              <a href="tel:+919876543210" className="centre-contact">📞 Contact Us</a>
+            </div>
+          </div>
+
+          <div className="centre-card">
+            <div className="centre-badge">Coming Soon</div>
+            <div className="centre-header">
+              <span className="centre-icon">🌍</span>
+              <h3>Regional Centre - South</h3>
+            </div>
+            <div className="centre-details">
+              <p className="centre-location">📍 Bangalore, Karnataka</p>
+              <p className="centre-hours">⏰ Opening in Q3 2024</p>
+              <p className="centre-languages">🗣️ Regional Languages</p>
+              <p className="centre-description">New facility bringing BhashaSetu to South India</p>
+              <a href="mailto:hello@bhashasetu.org" className="centre-contact">📧 Get Notified</a>
+            </div>
           </div>
         </div>
       </section>
