@@ -148,6 +148,32 @@ const App = () => {
         </div>
       </section>
 
+      {/* About Us Section */}
+      <section className="about-section">
+        <h2 className="section-title">Meet the Team</h2>
+        <p className="about-subtitle">Proud innovators from Jamnabi Narsee School, 7th Grade</p>
+        <div className="team-grid">
+          <div className="team-card">
+            <div className="team-avatar">A</div>
+            <h3>Ayansh</h3>
+            <p className="team-role">Co-Founder</p>
+            <p className="team-bio">Passionate about language preservation and AI technology</p>
+          </div>
+          <div className="team-card">
+            <div className="team-avatar">R</div>
+            <h3>Riaan</h3>
+            <p className="team-role">Co-Founder</p>
+            <p className="team-bio">Dedicated to documenting endangered languages</p>
+          </div>
+          <div className="team-card">
+            <div className="team-avatar">S</div>
+            <h3>Siddharth</h3>
+            <p className="team-role">Co-Founder</p>
+            <p className="team-bio">Building the future of linguistic heritage preservation</p>
+          </div>
+        </div>
+      </section>
+
       {/* Impact Section */}
       <section className="impact-section">
         <h2 className="section-title">Our Impact</h2>

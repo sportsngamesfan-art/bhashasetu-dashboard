@@ -15,6 +15,7 @@ body {
   background: #0D1117;
   color: #E8E8E8;
   line-height: 1.6;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="6" fill="%23C4A747"/><circle cx="16" cy="16" r="10" fill="none" stroke="%23C4A747" stroke-width="1.5" opacity="0.5"/></svg>') 16 16, auto;
 }
 
 #root {
@@ -429,6 +430,81 @@ body {
   font-weight: 800;
 }
 
+/* About Us Section */
+.about-section {
+  padding: 120px 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, rgba(196, 167, 71, 0.03) 0%, rgba(212, 183, 108, 0.01) 100%);
+}
+
+.about-subtitle {
+  text-align: center;
+  font-size: 1.1em;
+  color: #909090;
+  margin-bottom: 60px;
+  font-weight: 500;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+}
+
+.team-card {
+  background: linear-gradient(135deg, #1A1F26 0%, #232A33 100%);
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(196, 167, 71, 0.15);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.team-card:hover {
+  transform: translateY(-12px);
+  border-color: rgba(196, 167, 71, 0.4);
+  box-shadow: 0 20px 40px rgba(196, 167, 71, 0.1);
+}
+
+.team-avatar {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #C4A747, #D4B76C);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  font-weight: 800;
+  color: #0D1117;
+  animation: float 3s ease-in-out infinite;
+}
+
+.team-card h3 {
+  font-size: 1.4em;
+  font-weight: 700;
+  color: #E8E8E8;
+}
+
+.team-role {
+  color: #C4A747;
+  font-weight: 600;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.team-bio {
+  color: #909090;
+  font-size: 0.95em;
+  line-height: 1.6;
+}
+
 /* Impact Section */
 .impact-section {
   padding: 120px 40px;
@@ -711,6 +787,7 @@ body {
 
   .features-section,
   .how-it-works,
+  .about-section,
   .impact-section,
   .testimonials-section {
     padding: 60px 20px;
