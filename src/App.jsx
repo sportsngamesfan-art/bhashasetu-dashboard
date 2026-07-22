@@ -3,11 +3,16 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import './App.css'
 
 const App = () => {
+  const [currentPage, setCurrentPage] = useState('dashboard')
   const [robotStatus, setRobotStatus] = useState('recording')
   const [phrasesCollected, setPhrasesCollected] = useState(1247)
   const [batteryLevel, setBatteryLevel] = useState(78)
   const [lastPhraseHindi, setLastPhraseHindi] = useState('नमस्ते भाषा संग्रह')
   const [lastPhraseEnglish, setLastPhraseEnglish] = useState('Hello language collection')
+  const [robotPower, setRobotPower] = useState(true)
+  const [recordingMode, setRecordingMode] = useState('auto')
+  const [volume, setVolume] = useState(75)
+  const [sensitivity, setSensitivity] = useState(60)
 
   const recordingsData = [
     { date: 'Mon', recordings: 145 },
@@ -50,17 +55,139 @@ const App = () => {
     }
   }, [])
 
+  const ControlPanel = () => (
+    <div className="control-panel">
+      <div className="control-section">
+        <h3>Power Management</h3>
+        <div className="control-item">
+          <label>Robot Power</label>
+          <button
+            className={`toggle-btn ${robotPower ? 'active' : ''}`}
+            onClick={() => setRobotPower(!robotPower)}
+          >
+            {robotPower ? '✓ ON' : '⊘ OFF'}
+          </button>
+        </div>
+      </div>
+
+      <div className="control-section">
+        <h3>Recording Settings</h3>
+        <div className="control-item">
+          <label>Recording Mode</label>
+          <select
+            value={recordingMode}
+            onChange={(e) => setRecordingMode(e.target.value)}
+            className="select-input"
+          >
+            <option value="auto">Auto</option>
+            <option value="manual">Manual</option>
+            <option value="continuous">Continuous</option>
+          </select>
+        </div>
+      </div>
+
+      <div className="control-section">
+        <h3>Audio Controls</h3>
+        <div className="control-item">
+          <label>Volume: {volume}%</label>
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value={volume}
+            onChange={(e) => setVolume(Number(e.target.value))}
+            className="slider"
+          />
+        </div>
+        <div className="control-item">
+          <label>Microphone Sensitivity: {sensitivity}%</label>
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value={sensitivity}
+            onChange={(e) => setSensitivity(Number(e.target.value))}
+            className="slider"
+          />
+        </div>
+      </div>
+
+      <div className="control-section">
+        <h3>Quick Actions</h3>
+        <button className="action-btn primary">Start Recording</button>
+        <button className="action-btn secondary">Stop Recording</button>
+        <button className="action-btn tertiary">Reset Robot</button>
+      </div>
+
+      <div className="control-section status-info">
+        <h3>Status Information</h3>
+        <div className="info-item">
+          <span>Robot Power:</span>
+          <span className={robotPower ? 'status-active' : 'status-inactive'}>
+            {robotPower ? 'Active' : 'Inactive'}
+          </span>
+        </div>
+        <div className="info-item">
+          <span>Recording Mode:</span>
+          <span>{recordingMode.charAt(0).toUpperCase() + recordingMode.slice(1)}</span>
+        </div>
+        <div className="info-item">
+          <span>Volume:</span>
+          <span>{volume}%</span>
+        </div>
+      </div>
+    </div>
+  )
+
   return (
     <div className="dashboard">
-      <header className="header">
-        <div className="header-content">
-          <h1>🤖 BhashaSetu Dashboard</h1>
-          <p className="subtitle">Language Collection Robot</p>
+      <aside className="sidebar">
+        <div className="logo-section">
+          <div className="logo">🤖</div>
+          <h2>BhashaSetu</h2>
         </div>
-      </header>
 
-      <main className="main-content">
-        <div className="grid-container">
+        <nav className="sidebar-nav">
+          <button
+            className={`nav-item ${currentPage === 'dashboard' ? 'active' : ''}`}
+            onClick={() => setCurrentPage('dashboard')}
+          >
+            <span className="nav-icon">📊</span>
+            <span className="nav-label">Dashboard</span>
+          </button>
+          <button
+            className={`nav-item ${currentPage === 'control' ? 'active' : ''}`}
+            onClick={() => setCurrentPage('control')}
+          >
+            <span className="nav-icon">🎮</span>
+            <span className="nav-label">Control Panel</span>
+          </button>
+          <button
+            className={`nav-item ${currentPage === 'settings' ? 'active' : ''}`}
+            onClick={() => setCurrentPage('settings')}
+          >
+            <span className="nav-icon">⚙️</span>
+            <span className="nav-label">Settings</span>
+          </button>
+        </nav>
+
+        <div className="sidebar-footer">
+          <p>v1.0.0</p>
+        </div>
+      </aside>
+
+      <main className="main-wrapper">
+        <header className="header">
+          <div className="header-content">
+            <h1>🤖 BhashaSetu Dashboard</h1>
+            <p className="subtitle">Language Collection Robot</p>
+          </div>
+        </header>
+
+        <div className="main-content">
+          {currentPage === 'dashboard' && (
+            <>
+              <div className="grid-container">
           {/* Robot Status Card */}
           <div className="card status-card">
             <div className="card-header">
@@ -154,11 +281,27 @@ const App = () => {
             </ResponsiveContainer>
           </div>
         </div>
-      </main>
+            </>
+          )}
+          {currentPage === 'control' && <ControlPanel />}
+          {currentPage === 'settings' && (
+            <div className="settings-page">
+              <div className="card full-width-card">
+                <div className="card-header">
+                  <h2>Settings</h2>
+                </div>
+                <div className="settings-content">
+                  <p>Settings page coming soon...</p>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
 
-      <footer className="footer">
-        <p>BhashaSetu • Language Collection Initiative</p>
-      </footer>
+        <footer className="footer">
+          <p>BhashaSetu • Language Collection Initiative</p>
+        </footer>
+      </main>
     </div>
   )
 }
