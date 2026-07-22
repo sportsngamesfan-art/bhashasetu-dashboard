@@ -1,141 +1,57 @@
 import React, { useState, useEffect } from 'react'
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar } from 'recharts'
 import './App.css'
 
 const App = () => {
-  const [currentPage, setCurrentPage] = useState('dashboard')
-  const [robotStatus, setRobotStatus] = useState('recording')
-  const [phrasesCollected, setPhrasesCollected] = useState(1247)
-  const [batteryLevel, setBatteryLevel] = useState(78)
-  const [lastPhraseHindi, setLastPhraseHindi] = useState('नमस्ते भाषा संग्रह')
-  const [lastPhraseEnglish, setLastPhraseEnglish] = useState('Hello language collection')
   const [robotPower, setRobotPower] = useState(true)
+  const [isRecording, setIsRecording] = useState(false)
   const [recordingMode, setRecordingMode] = useState('auto')
   const [volume, setVolume] = useState(75)
   const [sensitivity, setSensitivity] = useState(60)
+  const [language, setLanguage] = useState('hindi')
+  const [storageUsed, setStorageUsed] = useState(65)
+  const [batteryLevel, setBatteryLevel] = useState(78)
+  const [autoSave, setAutoSave] = useState(true)
+  const [notifications, setNotifications] = useState(true)
+  const [logs, setLogs] = useState([
+    { time: '14:32', message: 'Robot powered on' },
+    { time: '14:30', message: 'System initialized' },
+  ])
 
-  const recordingsData = [
-    { date: 'Mon', recordings: 145 },
-    { date: 'Tue', recordings: 189 },
-    { date: 'Wed', recordings: 178 },
-    { date: 'Thu', recordings: 210 },
-    { date: 'Fri', recordings: 195 },
-    { date: 'Sat', recordings: 220 },
-    { date: 'Sun', recordings: 156 },
-  ]
-
-  const statusColors = {
-    recording: '#FF9933',
-    moving: '#0A1344',
-    stopped: '#666'
+  const addLog = (message) => {
+    const now = new Date()
+    const time = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
+    setLogs(prev => [{ time, message }, ...prev.slice(0, 9)])
   }
 
-  const statusIcons = {
-    recording: '🔴',
-    moving: '▶️',
-    stopped: '⏸️'
+  const handleStartRecording = () => {
+    setIsRecording(true)
+    addLog('Recording started')
   }
 
-  useEffect(() => {
-    const statusRotation = ['recording', 'moving', 'stopped']
-    const interval = setInterval(() => {
-      setRobotStatus(prev => {
-        const currentIndex = statusRotation.indexOf(prev)
-        return statusRotation[(currentIndex + 1) % 3]
-      })
-    }, 4000)
+  const handleStopRecording = () => {
+    setIsRecording(false)
+    addLog('Recording stopped')
+  }
 
-    return () => {
-      clearInterval(interval)
-    }
-  }, [])
+  const handlePowerToggle = () => {
+    setRobotPower(!robotPower)
+    addLog(robotPower ? 'Robot powered off' : 'Robot powered on')
+  }
 
-  const ControlPanel = () => (
-    <div className="control-panel">
-      <div className="control-section">
-        <h3>Power Management</h3>
-        <div className="control-item">
-          <label>Robot Power</label>
-          <button
-            className={`toggle-btn ${robotPower ? 'active' : ''}`}
-            onClick={() => setRobotPower(!robotPower)}
-          >
-            {robotPower ? '✓ ON' : '⊘ OFF'}
-          </button>
-        </div>
-      </div>
+  const handleReset = () => {
+    setIsRecording(false)
+    setRecordingMode('auto')
+    setVolume(75)
+    setSensitivity(60)
+    addLog('System reset to defaults')
+  }
 
-      <div className="control-section">
-        <h3>Recording Settings</h3>
-        <div className="control-item">
-          <label>Recording Mode</label>
-          <select
-            value={recordingMode}
-            onChange={(e) => setRecordingMode(e.target.value)}
-            className="select-input"
-          >
-            <option value="auto">Auto</option>
-            <option value="manual">Manual</option>
-            <option value="continuous">Continuous</option>
-          </select>
-        </div>
-      </div>
-
-      <div className="control-section">
-        <h3>Audio Controls</h3>
-        <div className="control-item">
-          <label>Volume: {volume}%</label>
-          <input
-            type="range"
-            min="0"
-            max="100"
-            value={volume}
-            onChange={(e) => setVolume(Number(e.target.value))}
-            className="slider"
-          />
-        </div>
-        <div className="control-item">
-          <label>Microphone Sensitivity: {sensitivity}%</label>
-          <input
-            type="range"
-            min="0"
-            max="100"
-            value={sensitivity}
-            onChange={(e) => setSensitivity(Number(e.target.value))}
-            className="slider"
-          />
-        </div>
-      </div>
-
-      <div className="control-section">
-        <h3>Quick Actions</h3>
-        <button className="action-btn primary">Start Recording</button>
-        <button className="action-btn secondary">Stop Recording</button>
-        <button className="action-btn tertiary">Reset Robot</button>
-      </div>
-
-      <div className="control-section status-info">
-        <h3>Status Information</h3>
-        <div className="info-item">
-          <span>Robot Power:</span>
-          <span className={robotPower ? 'status-active' : 'status-inactive'}>
-            {robotPower ? 'Active' : 'Inactive'}
-          </span>
-        </div>
-        <div className="info-item">
-          <span>Recording Mode:</span>
-          <span>{recordingMode.charAt(0).toUpperCase() + recordingMode.slice(1)}</span>
-        </div>
-        <div className="info-item">
-          <span>Volume:</span>
-          <span>{volume}%</span>
-        </div>
-      </div>
-    </div>
-  )
+  const handleClearLogs = () => {
+    setLogs([])
+  }
 
   return (
-    <div className="dashboard">
+    <div className="app-container">
       <aside className="sidebar">
         <div className="logo-section">
           <div className="logo">🤖</div>
@@ -143,27 +59,28 @@ const App = () => {
         </div>
 
         <nav className="sidebar-nav">
-          <button
-            className={`nav-item ${currentPage === 'dashboard' ? 'active' : ''}`}
-            onClick={() => setCurrentPage('dashboard')}
-          >
-            <span className="nav-icon">📊</span>
-            <span className="nav-label">Dashboard</span>
-          </button>
-          <button
-            className={`nav-item ${currentPage === 'control' ? 'active' : ''}`}
-            onClick={() => setCurrentPage('control')}
-          >
-            <span className="nav-icon">🎮</span>
-            <span className="nav-label">Control Panel</span>
-          </button>
-          <button
-            className={`nav-item ${currentPage === 'settings' ? 'active' : ''}`}
-            onClick={() => setCurrentPage('settings')}
-          >
-            <span className="nav-icon">⚙️</span>
-            <span className="nav-label">Settings</span>
-          </button>
+          <div className="nav-section">
+            <h4>Main</h4>
+            <button className="nav-item active">
+              <span className="nav-icon">🎮</span>
+              <span className="nav-label">Control Panel</span>
+            </button>
+          </div>
+          <div className="nav-section">
+            <h4>System</h4>
+            <button className="nav-item">
+              <span className="nav-icon">📝</span>
+              <span className="nav-label">Logs</span>
+            </button>
+            <button className="nav-item">
+              <span className="nav-icon">⚙️</span>
+              <span className="nav-label">Settings</span>
+            </button>
+            <button className="nav-item">
+              <span className="nav-icon">ℹ️</span>
+              <span className="nav-label">Info</span>
+            </button>
+          </div>
         </nav>
 
         <div className="sidebar-footer">
@@ -171,134 +88,210 @@ const App = () => {
         </div>
       </aside>
 
-      <main className="main-wrapper">
-        <header className="header">
-          <div className="header-content">
-            <h1>🤖 BhashaSetu Dashboard</h1>
-            <p className="subtitle">Language Collection Robot</p>
+      <main className="control-panel">
+        <div className="control-header">
+          <h1>🤖 Robot Control Panel</h1>
+          <div className="header-status">
+            <span className={`status-badge ${robotPower ? 'online' : 'offline'}`}>
+              {robotPower ? '● Online' : '● Offline'}
+            </span>
           </div>
-        </header>
+        </div>
 
-        <div className="main-content">
-          {currentPage === 'dashboard' && (
-            <>
-              <div className="grid-container">
-          {/* Robot Status Card */}
-          <div className="card status-card">
-            <div className="card-header">
-              <h2>Robot Status</h2>
-            </div>
-            <div className="status-content">
-              <div className="status-icon" style={{ color: statusColors[robotStatus] }}>
-                {statusIcons[robotStatus]}
-              </div>
-              <div className="status-text">
-                <p className="status-label">Current Status</p>
-                <p className="status-value" style={{ color: statusColors[robotStatus] }}>
-                  {robotStatus.charAt(0).toUpperCase() + robotStatus.slice(1)}
-                </p>
-              </div>
+        <div className="controls-grid">
+          {/* Power Control */}
+          <div className="control-section">
+            <h3>⚡ Power Management</h3>
+            <div className="control-item">
+              <label>Robot Power</label>
+              <button
+                className={`toggle-btn large ${robotPower ? 'active' : ''}`}
+                onClick={handlePowerToggle}
+              >
+                {robotPower ? '✓ POWERED ON' : '⊘ POWERED OFF'}
+              </button>
             </div>
           </div>
 
-          {/* Phrases Collected Counter */}
-          <div className="card counter-card">
-            <div className="card-header">
-              <h2>Phrases Collected</h2>
-            </div>
-            <div className="counter-content">
-              <div className="counter-value">{phrasesCollected.toLocaleString()}</div>
-              <p className="counter-label">Total Recorded Phrases</p>
-              <div className="counter-bar">
-                <div className="counter-progress" style={{ width: '67%' }}></div>
+          {/* Recording Control */}
+          <div className="control-section">
+            <h3>🎙️ Recording Control</h3>
+            <div className="control-item">
+              <label>Recording Status</label>
+              <div className="button-group">
+                <button
+                  className={`action-btn ${isRecording ? 'active' : ''} primary`}
+                  onClick={handleStartRecording}
+                  disabled={!robotPower}
+                >
+                  ● START
+                </button>
+                <button
+                  className={`action-btn ${!isRecording ? 'active' : ''} secondary`}
+                  onClick={handleStopRecording}
+                  disabled={!robotPower}
+                >
+                  ⊘ STOP
+                </button>
               </div>
-              <p className="counter-goal">Target: 2,000 phrases</p>
+            </div>
+            <div className="control-item">
+              <label>Recording Mode</label>
+              <select
+                value={recordingMode}
+                onChange={(e) => setRecordingMode(e.target.value)}
+                className="select-input"
+                disabled={!robotPower}
+              >
+                <option value="auto">Auto Detection</option>
+                <option value="manual">Manual Trigger</option>
+                <option value="continuous">Continuous</option>
+              </select>
             </div>
           </div>
 
-          {/* Battery Level Indicator */}
-          <div className="card battery-card">
-            <div className="card-header">
-              <h2>Battery Level</h2>
+          {/* Audio Settings */}
+          <div className="control-section">
+            <h3>🔊 Audio Settings</h3>
+            <div className="control-item">
+              <label>Volume: <span className="value">{volume}%</span></label>
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value={volume}
+                onChange={(e) => setVolume(Number(e.target.value))}
+                className="slider"
+                disabled={!robotPower}
+              />
             </div>
-            <div className="battery-content">
-              <div className="battery-display">
-                <svg viewBox="0 0 100 50" className="battery-svg">
-                  <rect x="5" y="10" width="85" height="30" fill="none" stroke="#0A1344" strokeWidth="2" rx="3" />
-                  <rect x="7" y="12" width="81" height="26" fill="none" stroke="#0A1344" strokeWidth="0.5" />
-                  <rect x="8" y="13" width={(batteryLevel / 100) * 79} height="24" fill="#FF9933" rx="2" />
-                  <circle cx="94" cy="25" r="2" fill="#0A1344" />
-                </svg>
+            <div className="control-item">
+              <label>Microphone Sensitivity: <span className="value">{sensitivity}%</span></label>
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value={sensitivity}
+                onChange={(e) => setSensitivity(Number(e.target.value))}
+                className="slider"
+                disabled={!robotPower}
+              />
+            </div>
+          </div>
+
+          {/* Language & Storage */}
+          <div className="control-section">
+            <h3>🌐 Language & Storage</h3>
+            <div className="control-item">
+              <label>Recording Language</label>
+              <select
+                value={language}
+                onChange={(e) => setLanguage(e.target.value)}
+                className="select-input"
+                disabled={!robotPower}
+              >
+                <option value="hindi">Hindi</option>
+                <option value="english">English</option>
+                <option value="marathi">Marathi</option>
+                <option value="tamil">Tamil</option>
+              </select>
+            </div>
+            <div className="storage-display">
+              <div className="storage-bar">
+                <div className="storage-used" style={{ width: `${storageUsed}%` }}></div>
               </div>
-              <p className="battery-percentage">{batteryLevel}%</p>
-              <p className="battery-status">
-                {batteryLevel > 50 ? '✓ Good' : batteryLevel > 20 ? '⚠ Low' : '🔴 Critical'}
-              </p>
+              <span className="storage-text">{storageUsed}% Storage Used</span>
+            </div>
+          </div>
+
+          {/* System Status */}
+          <div className="control-section status-panel">
+            <h3>📊 System Status</h3>
+            <div className="status-grid">
+              <div className="status-item">
+                <span className="label">Battery</span>
+                <span className="value">{batteryLevel}%</span>
+              </div>
+              <div className="status-item">
+                <span className="label">Recording</span>
+                <span className={`value ${isRecording ? 'active' : ''}`}>{isRecording ? 'ON' : 'OFF'}</span>
+              </div>
+              <div className="status-item">
+                <span className="label">Power</span>
+                <span className={`value ${robotPower ? 'active' : ''}`}>{robotPower ? 'ON' : 'OFF'}</span>
+              </div>
+              <div className="status-item">
+                <span className="label">Mode</span>
+                <span className="value">{recordingMode.charAt(0).toUpperCase() + recordingMode.slice(1)}</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Advanced Options */}
+          <div className="control-section">
+            <h3>⚙️ Advanced Options</h3>
+            <div className="toggle-list">
+              <div className="toggle-item">
+                <span>Auto-Save Recordings</span>
+                <button
+                  className={`mini-toggle ${autoSave ? 'active' : ''}`}
+                  onClick={() => setAutoSave(!autoSave)}
+                >
+                  {autoSave ? 'ON' : 'OFF'}
+                </button>
+              </div>
+              <div className="toggle-item">
+                <span>Notifications</span>
+                <button
+                  className={`mini-toggle ${notifications ? 'active' : ''}`}
+                  onClick={() => setNotifications(!notifications)}
+                >
+                  {notifications ? 'ON' : 'OFF'}
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Action Buttons */}
+          <div className="control-section full-width">
+            <h3>🔧 System Actions</h3>
+            <div className="button-group full">
+              <button className="action-btn primary" onClick={handleReset}>
+                Reset to Defaults
+              </button>
+              <button className="action-btn secondary">
+                Save Configuration
+              </button>
+              <button className="action-btn tertiary">
+                Shutdown
+              </button>
             </div>
           </div>
         </div>
 
-        {/* Last Phrase Recorded */}
-        <div className="card full-width-card phrase-card">
-          <div className="card-header">
-            <h2>Last Phrase Recorded</h2>
+        {/* Activity Log */}
+        <div className="activity-log">
+          <div className="log-header">
+            <h3>📋 Activity Log</h3>
+            <button className="clear-btn" onClick={handleClearLogs}>Clear</button>
           </div>
-          <div className="phrase-content">
-            <div className="phrase-item">
-              <div className="language-label">Hindi</div>
-              <div className="phrase-text">{lastPhraseHindi}</div>
-            </div>
-            <div className="divider"></div>
-            <div className="phrase-item">
-              <div className="language-label">English</div>
-              <div className="phrase-text">{lastPhraseEnglish}</div>
-            </div>
-          </div>
-        </div>
-
-        {/* Total Recordings Chart */}
-        <div className="card full-width-card chart-card">
-          <div className="card-header">
-            <h2>Weekly Recordings</h2>
-          </div>
-          <div className="chart-content">
-            <ResponsiveContainer width="100%" height={300}>
-              <BarChart data={recordingsData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#E8E8E8" />
-                <XAxis dataKey="date" stroke="#666" />
-                <YAxis stroke="#666" />
-                <Tooltip
-                  contentStyle={{ backgroundColor: '#FFF', border: '2px solid #FF9933' }}
-                  formatter={(value) => [value, 'Recordings']}
-                />
-                <Bar dataKey="recordings" fill="#FF9933" radius={[8, 8, 0, 0]} />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-        </div>
-            </>
-          )}
-          {currentPage === 'control' && <ControlPanel />}
-          {currentPage === 'settings' && (
-            <div className="settings-page">
-              <div className="card full-width-card">
-                <div className="card-header">
-                  <h2>Settings</h2>
+          <div className="log-entries">
+            {logs.length === 0 ? (
+              <p className="empty-log">No activity yet</p>
+            ) : (
+              logs.map((log, idx) => (
+                <div key={idx} className="log-entry">
+                  <span className="log-time">{log.time}</span>
+                  <span className="log-message">{log.message}</span>
                 </div>
-                <div className="settings-content">
-                  <p>Settings page coming soon...</p>
-                </div>
-              </div>
-            </div>
-          )}
+              ))
+            )}
+          </div>
         </div>
-
-        <footer className="footer">
-          <p>BhashaSetu • Language Collection Initiative</p>
-        </footer>
       </main>
     </div>
   )
+
 }
 
 export default App
