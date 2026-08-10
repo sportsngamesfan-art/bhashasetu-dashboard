@@ -708,7 +708,7 @@ body {
 /* ===== IMPACT GRID ===== */
 .impact-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 32px;
 }
 
@@ -1210,7 +1210,7 @@ body {
   .impact-grid,
   .vision-timeline,
   .team-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .hero-buttons {
@@ -1315,6 +1315,15 @@ body {
   .vision-step,
   .team-card {
     padding: 24px;
+  }
+
+  .problem-grid,
+  .workflow-grid,
+  .tech-grid,
+  .impact-grid,
+  .vision-timeline,
+  .team-grid {
+    grid-template-columns: 1fr;
   }
 
   .section-cta {
