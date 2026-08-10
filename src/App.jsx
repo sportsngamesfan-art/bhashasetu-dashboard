@@ -63,6 +63,11 @@ const App = () => {
             </button>
           </div>
         </div>
+        <div className="hero-image">
+          <div className="image-placeholder">
+            <p>Mountain community</p>
+          </div>
+        </div>
       </section>
 
       {/* The Problem Section */}
@@ -129,21 +134,9 @@ const App = () => {
               </div>
             </div>
             <div className="approach-visual">
-              <div className="workflow-mini">
-                <div className="workflow-step-mini">
-                  <span>Speak</span>
-                </div>
-                <span className="arrow">→</span>
-                <div className="workflow-step-mini">
-                  <span>Transcribe</span>
-                </div>
-                <span className="arrow">→</span>
-                <div className="workflow-step-mini">
-                  <span>Translate</span>
-                </div>
-                <span className="arrow">→</span>
-                <div className="workflow-step-mini">
-                  <span>Preserve</span>
+              <div className="approach-image">
+                <div className="image-placeholder">
+                  <p>Elder sharing stories</p>
                 </div>
               </div>
             </div>
@@ -282,30 +275,37 @@ const App = () => {
             <p>Where BhashaSetu makes a difference.</p>
           </div>
 
-          <div className="impact-grid">
-            <div className="impact-item">
-              <h3>Villages</h3>
-              <p>Preserve voices and wisdom of rural communities.</p>
+          <div className="impact-showcase">
+            <div className="impact-featured">
+              <div className="image-placeholder featured">
+                <p>Communities using BhashaSetu</p>
+              </div>
             </div>
-            <div className="impact-item">
-              <h3>Old-Age Homes</h3>
-              <p>Enable residents to share life stories with future generations.</p>
-            </div>
-            <div className="impact-item">
-              <h3>Schools</h3>
-              <p>Connect students with elders to learn history and culture directly.</p>
-            </div>
-            <div className="impact-item">
-              <h3>Museums</h3>
-              <p>Build rich digital archives of cultural heritage.</p>
-            </div>
-            <div className="impact-item">
-              <h3>Libraries</h3>
-              <p>Create collections of endangered languages and regional literature.</p>
-            </div>
-            <div className="impact-item">
-              <h3>Researchers</h3>
-              <p>Provide authentic, annotated data for language studies.</p>
+            <div className="impact-grid">
+              <div className="impact-item">
+                <h3>Villages</h3>
+                <p>Preserve voices and wisdom of rural communities.</p>
+              </div>
+              <div className="impact-item">
+                <h3>Old-Age Homes</h3>
+                <p>Enable residents to share life stories with future generations.</p>
+              </div>
+              <div className="impact-item">
+                <h3>Schools</h3>
+                <p>Connect students with elders to learn history and culture directly.</p>
+              </div>
+              <div className="impact-item">
+                <h3>Museums</h3>
+                <p>Build rich digital archives of cultural heritage.</p>
+              </div>
+              <div className="impact-item">
+                <h3>Libraries</h3>
+                <p>Create collections of endangered languages and regional literature.</p>
+              </div>
+              <div className="impact-item">
+                <h3>Researchers</h3>
+                <p>Provide authentic, annotated data for language studies.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -362,19 +362,40 @@ const App = () => {
 
           <div className="team-grid">
             <div className="team-card">
-              <h3>Ayansh Agarwal</h3>
-              <p className="team-role">Project Lead</p>
-              <p className="team-bio">Visionary behind BhashaSetu, leading the mission to preserve endangered languages.</p>
+              <div className="team-image">
+                <div className="image-placeholder">
+                  <p>Ayansh</p>
+                </div>
+              </div>
+              <div className="team-content">
+                <h3>Ayansh Agarwal</h3>
+                <p className="team-role">Project Lead</p>
+                <p className="team-bio">Visionary behind BhashaSetu, leading the mission to preserve endangered languages.</p>
+              </div>
             </div>
             <div className="team-card">
-              <h3>Riaan Laiwala</h3>
-              <p className="team-role">Hardware & Systems</p>
-              <p className="team-bio">Designing accessible hardware that works for everyone, regardless of technical skill.</p>
+              <div className="team-image">
+                <div className="image-placeholder">
+                  <p>Riaan</p>
+                </div>
+              </div>
+              <div className="team-content">
+                <h3>Riaan Laiwala</h3>
+                <p className="team-role">Hardware & Systems</p>
+                <p className="team-bio">Designing accessible hardware that works for everyone, regardless of technical skill.</p>
+              </div>
             </div>
             <div className="team-card">
-              <h3>Siddharth Thawani</h3>
-              <p className="team-role">Software & Integration</p>
-              <p className="team-bio">Building intelligent systems that transcribe, translate, and preserve voices with precision.</p>
+              <div className="team-image">
+                <div className="image-placeholder">
+                  <p>Siddharth</p>
+                </div>
+              </div>
+              <div className="team-content">
+                <h3>Siddharth Thawani</h3>
+                <p className="team-role">Software & Integration</p>
+                <p className="team-bio">Building intelligent systems that transcribe, translate, and preserve voices with precision.</p>
+              </div>
             </div>
           </div>
         </div>
