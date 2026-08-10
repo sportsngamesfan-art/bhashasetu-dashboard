@@ -363,18 +363,18 @@ const App = () => {
           <div className="team-grid">
             <div className="team-card">
               <h3>Ayansh Agarwal</h3>
-              <p className="team-role">Project Lead</p>
-              <p className="team-bio">Visionary behind BhashaSetu, leading the mission to preserve endangered languages.</p>
-            </div>
-            <div className="team-card">
-              <h3>Riaan Laiwala</h3>
-              <p className="team-role">Hardware & Systems</p>
+              <p className="team-role">Hardware</p>
               <p className="team-bio">Designing accessible hardware that works for everyone, regardless of technical skill.</p>
             </div>
             <div className="team-card">
-              <h3>Siddharth Thawani</h3>
-              <p className="team-role">Software & Integration</p>
+              <h3>Riaan Laiwala</h3>
+              <p className="team-role">Software</p>
               <p className="team-bio">Building intelligent systems that transcribe, translate, and preserve voices with precision.</p>
+            </div>
+            <div className="team-card">
+              <h3>Siddharth Thawani</h3>
+              <p className="team-role">Software</p>
+              <p className="team-bio">Developing core features and ensuring seamless integration across the platform.</p>
             </div>
           </div>
         </div>
@@ -444,6 +444,14 @@ const App = () => {
             <div className="footer-contact">
               <h4>Contact</h4>
               <p>Jamnabai Narsee School<br />Mumbai, India</p>
+            </div>
+            <div className="footer-qr">
+              <h4>Scan to Visit</h4>
+              <img
+                src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://bhashasetu-robot-dashboard.vercel.app/"
+                alt="QR Code to BhashaSetu Website"
+                className="qr-code-img"
+              />
             </div>
           </div>
           <div className="footer-bottom">
