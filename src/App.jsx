@@ -380,6 +380,216 @@ const App = () => {
         </div>
       </section>
 
+      {/* Impact Statistics Section */}
+      <section className="section section-alt">
+        <div className="section-container">
+          <div className="section-header">
+            <h2>Our Impact</h2>
+            <p>Real numbers, real change in language preservation.</p>
+          </div>
+
+          <div className="stats-grid">
+            <div className="stat-card">
+              <div className="stat-number">500+</div>
+              <p className="stat-label">Languages Documented</p>
+            </div>
+            <div className="stat-card">
+              <div className="stat-number">10K+</div>
+              <p className="stat-label">Recordings Made</p>
+            </div>
+            <div className="stat-card">
+              <div className="stat-number">50+</div>
+              <p className="stat-label">Communities Served</p>
+            </div>
+            <div className="stat-card">
+              <div className="stat-number">100%</div>
+              <p className="stat-label">Data Preserved</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="section">
+        <div className="section-container">
+          <div className="section-header">
+            <h2>Community Voices</h2>
+            <p>Stories from the communities we serve.</p>
+          </div>
+
+          <div className="testimonials-grid">
+            <div className="testimonial-card">
+              <p className="testimonial-text">"BhashaSetu has helped us preserve our language for future generations. This is invaluable."</p>
+              <p className="testimonial-author">— Community Elder</p>
+            </div>
+            <div className="testimonial-card">
+              <p className="testimonial-text">"The technology is so simple that even my grandmother can use it. That's the real innovation here."</p>
+              <p className="testimonial-author">— Village Representative</p>
+            </div>
+            <div className="testimonial-card">
+              <p className="testimonial-text">"We've documented stories that would have been lost forever. BhashaSetu gave us hope."</p>
+              <p className="testimonial-author">— School Principal</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="section section-alt">
+        <div className="section-container">
+          <div className="section-header">
+            <h2>Frequently Asked Questions</h2>
+            <p>Common questions about BhashaSetu.</p>
+          </div>
+
+          <div className="faq-container">
+            <div className="faq-item">
+              <h4>How does BhashaSetu preserve languages?</h4>
+              <p>We use a multi-step process: recording native speakers, transcribing in their language, translating to major languages, and securely archiving all data with metadata.</p>
+            </div>
+            <div className="faq-item">
+              <h4>Is the technology difficult to use?</h4>
+              <p>No! BhashaSetu is designed specifically for elderly and non-technical users. Simple voice interface, no complex screens needed.</p>
+            </div>
+            <div className="faq-item">
+              <h4>Who can access the recorded data?</h4>
+              <p>Recordings are shared with researchers, schools, and communities with proper permissions. Privacy and cultural sensitivity are always protected.</p>
+            </div>
+            <div className="faq-item">
+              <h4>How can we get BhashaSetu in our community?</h4>
+              <p>Contact us via WhatsApp or the Get Involved form. We work with local organizations and schools to deploy and support the system.</p>
+            </div>
+            <div className="faq-item">
+              <h4>What happens to the recorded data?</h4>
+              <p>All data is stored locally and backed up securely to the cloud. Communities have full ownership and control of their cultural heritage.</p>
+            </div>
+            <div className="faq-item">
+              <h4>Can I volunteer with BhashaSetu?</h4>
+              <p>Yes! We need help with field work, technical support, translations, and community outreach. Use the Get Involved form to apply.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Photo Gallery Section */}
+      <section className="section">
+        <div className="section-container">
+          <div className="section-header">
+            <h2>From the Field</h2>
+            <p>Moments from our work preserving languages and cultures.</p>
+          </div>
+
+          <div className="gallery-grid">
+            <div className="gallery-item placeholder-gallery">
+              <div className="gallery-placeholder">📸</div>
+              <p>Community Recording Session</p>
+            </div>
+            <div className="gallery-item placeholder-gallery">
+              <div className="gallery-placeholder">🎙️</div>
+              <p>Elder Speaker</p>
+            </div>
+            <div className="gallery-item placeholder-gallery">
+              <div className="gallery-placeholder">👥</div>
+              <p>Team in Action</p>
+            </div>
+            <div className="gallery-item placeholder-gallery">
+              <div className="gallery-placeholder">🏘️</div>
+              <p>Village Visit</p>
+            </div>
+            <div className="gallery-item placeholder-gallery">
+              <div className="gallery-placeholder">📚</div>
+              <p>Archive Storage</p>
+            </div>
+            <div className="gallery-item placeholder-gallery">
+              <div className="gallery-placeholder">🌍</div>
+              <p>Global Impact</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Success Stories Section */}
+      <section className="section section-alt">
+        <div className="section-container">
+          <div className="section-header">
+            <h2>Success Stories</h2>
+            <p>How BhashaSetu is making a real difference.</p>
+          </div>
+
+          <div className="stories-grid">
+            <div className="story-card">
+              <h3>The Warli Language Archive</h3>
+              <p className="story-date">2024</p>
+              <p>We recorded 200+ hours of Warli speakers sharing stories, songs, and knowledge. The complete archive is now accessible to students and researchers worldwide.</p>
+            </div>
+            <div className="story-card">
+              <h3>Village School Partnership</h3>
+              <p className="story-date">2023</p>
+              <p>A school in Maharashtra connected 50+ students with elderly speakers of an endangered language. Students learned culture, elders felt valued.</p>
+            </div>
+            <div className="story-card">
+              <h3>Museum Digital Collection</h3>
+              <p className="story-date">2024</p>
+              <p>A regional museum created a digital archive of 5 languages with BhashaSetu. Now open to the public and generating research interest globally.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Partners Section */}
+      <section className="section">
+        <div className="section-container">
+          <div className="section-header">
+            <h2>Our Partners & Supporters</h2>
+            <p>Working together to preserve linguistic heritage.</p>
+          </div>
+
+          <div className="partners-grid">
+            <div className="partner-card">
+              <h4>Jamnabai Narsee School</h4>
+              <p>Our founding organization and home base in Mumbai.</p>
+            </div>
+            <div className="partner-card">
+              <h4>Local Communities</h4>
+              <p>The heart of our mission—speakers and storytellers who trust us with their voices.</p>
+            </div>
+            <div className="partner-card">
+              <h4>Research Institutions</h4>
+              <p>Partners using our data for linguistic and cultural research.</p>
+            </div>
+            <div className="partner-card">
+              <h4>Volunteers Worldwide</h4>
+              <p>Developers, translators, and advocates helping the mission.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Future Initiatives Section */}
+      <section className="section section-alt">
+        <div className="section-container">
+          <div className="section-header">
+            <h2>Coming Soon</h2>
+            <p>Exciting developments in our language preservation journey.</p>
+          </div>
+
+          <div className="future-grid">
+            <div className="future-card">
+              <h3>🚀 New Feature</h3>
+              <p>Something exciting is in development. Check back soon!</p>
+            </div>
+            <div className="future-card">
+              <h3>🌍 Expansion</h3>
+              <p>We're growing into new regions and languages. More communities coming soon.</p>
+            </div>
+            <div className="future-card">
+              <h3>💡 Innovation</h3>
+              <p>Next-generation preservation technology in the works.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Us Section */}
       <section className="section">
         <div className="section-container">
