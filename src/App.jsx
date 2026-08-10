@@ -380,6 +380,38 @@ const App = () => {
         </div>
       </section>
 
+      {/* Contact Us Section */}
+      <section className="section">
+        <div className="section-container">
+          <div className="section-header">
+            <h2>Get In Touch</h2>
+            <p>Reach out directly to discuss how you can support BhashaSetu.</p>
+          </div>
+
+          <div className="contact-content">
+            <div className="contact-card">
+              <h3>WhatsApp</h3>
+              <p className="contact-label">Message us instantly</p>
+              <a href="https://wa.me/919820313607" target="_blank" rel="noopener noreferrer" className="contact-button">
+                +91 9820313607
+              </a>
+            </div>
+
+            <div className="contact-card">
+              <h3>Location</h3>
+              <p className="contact-label">Visit us at</p>
+              <p className="contact-info">Jamnabai Narsee School<br />Mumbai, India</p>
+            </div>
+
+            <div className="contact-card">
+              <h3>Mission</h3>
+              <p className="contact-label">What we do</p>
+              <p className="contact-info">Preserve endangered languages and cultural heritage for future generations.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="section section-cta">
         <div className="section-container">

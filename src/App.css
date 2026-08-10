@@ -887,6 +887,100 @@ body {
   color: #AAAAAA;
 }
 
+/* ===== CONTACT SECTION ===== */
+.contact-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.contact-card {
+  padding: 40px 32px;
+  background: #F9F7F4;
+  border-radius: 12px;
+  border: 1px solid #E8E5E1;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.website.dark-mode .contact-card {
+  background: #1A1A1A;
+  border-color: #5A5A5A;
+}
+
+.contact-card:hover {
+  border-color: #6B7E9E;
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(62, 62, 62, 0.12);
+}
+
+.website.dark-mode .contact-card:hover {
+  border-color: #6B7E9E;
+  box-shadow: 0 16px 40px rgba(107, 126, 158, 0.2);
+}
+
+.contact-card h3 {
+  font-size: 1.3em;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #3E3E3E;
+}
+
+.website.dark-mode .contact-card h3 {
+  color: #F5F3F0;
+}
+
+.contact-label {
+  color: #6B7E9E;
+  font-weight: 600;
+  margin-bottom: 16px;
+  font-size: 0.9em;
+}
+
+.contact-info {
+  color: #6B6B6B;
+  line-height: 1.8;
+  font-size: 0.95em;
+}
+
+.website.dark-mode .contact-info {
+  color: #AAAAAA;
+}
+
+.contact-button {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 12px 32px;
+  background: #3E3E3E;
+  color: #F5F3F0;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1em;
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 4px 16px rgba(62, 62, 62, 0.2);
+}
+
+.contact-button:hover {
+  background: #5A5A5A;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(62, 62, 62, 0.3);
+}
+
+.website.dark-mode .contact-button {
+  background: #F5F3F0;
+  color: #0F0F0F;
+  box-shadow: 0 4px 16px rgba(245, 243, 240, 0.2);
+}
+
+.website.dark-mode .contact-button:hover {
+  background: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(245, 243, 240, 0.3);
+}
+
 /* ===== CTA SECTION ===== */
 .section-cta {
   padding: 120px 40px;
@@ -1160,7 +1254,8 @@ body {
   .tech-grid,
   .impact-grid,
   .vision-timeline,
-  .team-grid {
+  .team-grid,
+  .contact-content {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -1218,7 +1313,8 @@ body {
   .tech-grid,
   .impact-grid,
   .vision-timeline,
-  .team-grid {
+  .team-grid,
+  .contact-content {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -1331,7 +1427,8 @@ body {
   .tech-grid,
   .impact-grid,
   .vision-timeline,
-  .team-grid {
+  .team-grid,
+  .contact-content {
     grid-template-columns: 1fr;
   }
 
