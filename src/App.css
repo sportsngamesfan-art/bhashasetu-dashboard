@@ -411,7 +411,7 @@ body {
 /* ===== PROBLEM SECTION ===== */
 .problem-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 40px;
 }
 
@@ -562,7 +562,7 @@ body {
 /* ===== WORKFLOW GRID ===== */
 .workflow-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 40px;
 }
 
@@ -645,7 +645,7 @@ body {
 /* ===== TECH GRID ===== */
 .tech-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 40px;
 }
 
@@ -760,7 +760,7 @@ body {
 /* ===== VISION TIMELINE ===== */
 .vision-timeline {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 32px;
 }
 
@@ -824,7 +824,7 @@ body {
 /* ===== TEAM GRID ===== */
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 40px;
 }
 
@@ -1153,6 +1153,15 @@ body {
 
   .section-header h2 {
     font-size: 2.2em;
+  }
+
+  .problem-grid,
+  .workflow-grid,
+  .tech-grid,
+  .impact-grid,
+  .vision-timeline,
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .approach-content,
