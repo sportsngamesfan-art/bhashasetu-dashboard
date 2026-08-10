@@ -823,9 +823,14 @@ body {
 
 /* ===== TEAM GRID ===== */
 .team-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 40px;
+}
+
+.team-card {
+  flex: 0 1 280px;
 }
 
 .team-card {
@@ -835,6 +840,7 @@ body {
   background: #F9F7F4;
   text-align: center;
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  width: 280px;
 }
 
 .website.dark-mode .team-card {
