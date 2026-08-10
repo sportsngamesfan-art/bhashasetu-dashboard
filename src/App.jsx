@@ -46,7 +46,7 @@ const App = () => {
 
       {/* Hero Section */}
       <section id="hero" className="hero">
-        <div className="hero-content">
+        <div className="hero-wrapper">
           <h1 className="hero-title">
             Before the last voice fades,<br />
             <span className="highlight">we listen.</span>
@@ -63,10 +63,8 @@ const App = () => {
             </button>
           </div>
         </div>
-        <div className="hero-image">
-          <div className="image-placeholder">
-            <p>Mountain community</p>
-          </div>
+        <div className="scroll-indicator">
+          <span>↓</span>
         </div>
       </section>
 
@@ -130,13 +128,6 @@ const App = () => {
                   <span className="principle-number">3</span>
                   <h4>Dignity</h4>
                   <p>Respecting voices, cultures, and knowledge without judgment.</p>
-                </div>
-              </div>
-            </div>
-            <div className="approach-visual">
-              <div className="approach-image">
-                <div className="image-placeholder">
-                  <p>Elder sharing stories</p>
                 </div>
               </div>
             </div>
@@ -275,13 +266,7 @@ const App = () => {
             <p>Where BhashaSetu makes a difference.</p>
           </div>
 
-          <div className="impact-showcase">
-            <div className="impact-featured">
-              <div className="image-placeholder featured">
-                <p>Communities using BhashaSetu</p>
-              </div>
-            </div>
-            <div className="impact-grid">
+          <div className="impact-grid">
               <div className="impact-item">
                 <h3>Villages</h3>
                 <p>Preserve voices and wisdom of rural communities.</p>
@@ -307,7 +292,6 @@ const App = () => {
                 <p>Provide authentic, annotated data for language studies.</p>
               </div>
             </div>
-          </div>
         </div>
       </section>
 
@@ -362,40 +346,19 @@ const App = () => {
 
           <div className="team-grid">
             <div className="team-card">
-              <div className="team-image">
-                <div className="image-placeholder">
-                  <p>Ayansh</p>
-                </div>
-              </div>
-              <div className="team-content">
-                <h3>Ayansh Agarwal</h3>
-                <p className="team-role">Project Lead</p>
-                <p className="team-bio">Visionary behind BhashaSetu, leading the mission to preserve endangered languages.</p>
-              </div>
+              <h3>Ayansh Agarwal</h3>
+              <p className="team-role">Project Lead</p>
+              <p className="team-bio">Visionary behind BhashaSetu, leading the mission to preserve endangered languages.</p>
             </div>
             <div className="team-card">
-              <div className="team-image">
-                <div className="image-placeholder">
-                  <p>Riaan</p>
-                </div>
-              </div>
-              <div className="team-content">
-                <h3>Riaan Laiwala</h3>
-                <p className="team-role">Hardware & Systems</p>
-                <p className="team-bio">Designing accessible hardware that works for everyone, regardless of technical skill.</p>
-              </div>
+              <h3>Riaan Laiwala</h3>
+              <p className="team-role">Hardware & Systems</p>
+              <p className="team-bio">Designing accessible hardware that works for everyone, regardless of technical skill.</p>
             </div>
             <div className="team-card">
-              <div className="team-image">
-                <div className="image-placeholder">
-                  <p>Siddharth</p>
-                </div>
-              </div>
-              <div className="team-content">
-                <h3>Siddharth Thawani</h3>
-                <p className="team-role">Software & Integration</p>
-                <p className="team-bio">Building intelligent systems that transcribe, translate, and preserve voices with precision.</p>
-              </div>
+              <h3>Siddharth Thawani</h3>
+              <p className="team-role">Software & Integration</p>
+              <p className="team-bio">Building intelligent systems that transcribe, translate, and preserve voices with precision.</p>
             </div>
           </div>
         </div>
