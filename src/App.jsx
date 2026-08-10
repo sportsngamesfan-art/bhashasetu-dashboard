@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import emailjs from 'emailjs-com'
 import './App.css'
 
-emailjs.init('YOUR_PUBLIC_KEY_HERE')
+emailjs.init('Xf1TUywYllnNY1fx6')
 
 const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(true)
