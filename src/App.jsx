@@ -445,14 +445,6 @@ const App = () => {
               <h4>Contact</h4>
               <p>Jamnabai Narsee School<br />Mumbai, India</p>
             </div>
-            <div className="footer-qr">
-              <h4>Scan to Visit</h4>
-              <img
-                src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://bhashasetu-robot-dashboard.vercel.app/"
-                alt="QR Code to BhashaSetu Website"
-                className="qr-code-img"
-              />
-            </div>
           </div>
           <div className="footer-bottom">
             <p>&copy; 2024 BhashaSetu. All languages matter.</p>
