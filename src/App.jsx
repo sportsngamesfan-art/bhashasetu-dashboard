@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react'
+import emailjs from 'emailjs-com'
 import './App.css'
+
+emailjs.init('YOUR_PUBLIC_KEY_HERE')
 
 const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(true)
@@ -19,6 +22,34 @@ const App = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' })
     }
+  }
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault()
+
+    const formData = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+      involvement: e.target.involvement.value,
+      message: e.target.message.value,
+    }
+
+    emailjs.send(
+      'YOUR_SERVICE_ID_HERE',
+      'YOUR_TEMPLATE_ID_HERE',
+      {
+        to_email: 'sportsngamesfan@gmail.com,electriceelai@gmail.com,ayansh.agarwal.21188@jns.ac.in',
+        from_name: formData.name,
+        from_email: formData.email,
+        involvement_type: formData.involvement,
+        message: formData.message,
+      }
+    ).then(() => {
+      setShowModal(false)
+      e.target.reset()
+    }).catch((error) => {
+      console.error('Email send failed:', error)
+    })
   }
 
   return (
@@ -412,18 +443,18 @@ const App = () => {
             <h2>Get Involved</h2>
             <p>Help us preserve languages and cultures for future generations.</p>
 
-            <form className="modal-form" onSubmit={(e) => { e.preventDefault(); setShowModal(false); }}>
+            <form className="modal-form" onSubmit={handleFormSubmit}>
               <div className="form-group">
                 <label>Name</label>
-                <input type="text" placeholder="Your name" required />
+                <input type="text" name="name" placeholder="Your name" required />
               </div>
               <div className="form-group">
                 <label>Email</label>
-                <input type="email" placeholder="your@email.com" required />
+                <input type="email" name="email" placeholder="your@email.com" required />
               </div>
               <div className="form-group">
                 <label>How can we work together?</label>
-                <select required>
+                <select name="involvement" required>
                   <option value="">Select an option</option>
                   <option value="volunteer">Volunteer</option>
                   <option value="partner">Partnership</option>
@@ -434,7 +465,7 @@ const App = () => {
               </div>
               <div className="form-group">
                 <label>Message</label>
-                <textarea placeholder="Tell us more..." rows="4"></textarea>
+                <textarea name="message" placeholder="Tell us more..." rows="4"></textarea>
               </div>
               <button type="submit" className="btn btn-primary">Send</button>
             </form>
