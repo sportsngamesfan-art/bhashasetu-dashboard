@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import emailjs from 'emailjs-com'
 import './App.css'
-
-emailjs.init('Xf1TUywYllnNY1fx6')
 
 const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(true)
@@ -27,29 +24,17 @@ const App = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault()
 
-    const formData = {
-      name: e.target.name.value,
-      email: e.target.email.value,
-      involvement: e.target.involvement.value,
-      message: e.target.message.value,
-    }
+    const name = e.target.name.value
+    const email = e.target.email.value
+    const involvement = e.target.involvement.value
+    const message = e.target.message.value
 
-    emailjs.send(
-      'YOUR_SERVICE_ID_HERE',
-      'YOUR_TEMPLATE_ID_HERE',
-      {
-        to_email: 'sportsngamesfan@gmail.com,electriceelai@gmail.com,ayansh.agarwal.21188@jns.ac.in',
-        from_name: formData.name,
-        from_email: formData.email,
-        involvement_type: formData.involvement,
-        message: formData.message,
-      }
-    ).then(() => {
-      setShowModal(false)
-      e.target.reset()
-    }).catch((error) => {
-      console.error('Email send failed:', error)
-    })
+    const whatsappMessage = `Hello! I'm interested in BhashaSetu%0A%0AName: ${name}%0AEmail: ${email}%0AHow I want to help: ${involvement}%0AMessage: ${message}`
+    const whatsappUrl = `https://wa.me/919820313607?text=${whatsappMessage}`
+
+    window.open(whatsappUrl, '_blank')
+    setShowModal(false)
+    e.target.reset()
   }
 
   return (
