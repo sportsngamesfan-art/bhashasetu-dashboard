@@ -118,16 +118,16 @@ const App = () => {
         <div className="section-container">
           <div className="section-header">
             <h2>Our Approach</h2>
-            <p>Technology should reach people. Not the other way around.</p>
+            <p>Made by teenagers. Built for communities. Designed for Katkari & Warli preservation.</p>
           </div>
 
           <div className="approach-content">
             <div className="approach-text">
               <p className="approach-lead">
-                BhashaSetu is fundamentally different from translation apps. We're not just translating—we're preserving.
+                We're not a corporate startup. We're high school students who saw a problem and built a solution. BhashaSetu is fundamentally different—it's built with real communities, for real languages.
               </p>
               <p>
-                Our platform is designed with elderly and non-technical users in mind. Simple voice interface. Natural conversation. No screens needed. Just speak, and BhashaSetu listens, records, transcribes, translates, and preserves.
+                Our focus is clear: preserving Katkari and Warli languages before it's too late. We designed everything with elderly speakers in mind. Simple voice interface. Natural conversation. No complicated screens. Just speak, and BhashaSetu listens, records, transcribes, and preserves forever.
               </p>
               <div className="principles">
                 <div className="principle">
@@ -202,27 +202,22 @@ const App = () => {
 
           <div className="languages-grid">
             <div className="language-group">
-              <h3>Currently Supported</h3>
+              <h3>Our Primary Focus</h3>
               <div className="language-list">
-                <span className="language-tag">Sanskrit</span>
-                <span className="language-tag">Tamil</span>
-                <span className="language-tag">Marathi</span>
-                <span className="language-tag">Odia</span>
-                <span className="language-tag">Hindi</span>
-                <span className="language-tag">English</span>
+                <span className="language-tag featured">Katkari</span>
+                <span className="language-tag featured">Warli</span>
               </div>
+              <p className="language-description">Indigenous languages of Western India. Spoken by the Katkari and Warli tribes, these languages hold unique cultural knowledge and traditions spanning generations.</p>
             </div>
 
             <div className="language-group">
-              <h3>Coming Soon</h3>
+              <h3>Supported Languages</h3>
               <div className="language-list">
-                <span className="language-tag coming">Warli</span>
-                <span className="language-tag coming">Kashmiri</span>
-                <span className="language-tag coming">Konkani</span>
-                <span className="language-tag coming">Sindhi</span>
-                <span className="language-tag coming">Manipuri</span>
-                <span className="language-tag coming">More...</span>
+                <span className="language-tag">Hindi</span>
+                <span className="language-tag">Marathi</span>
+                <span className="language-tag">English</span>
               </div>
+              <p className="language-description">Languages for transcription and translation support.</p>
             </div>
           </div>
         </div>
@@ -390,20 +385,21 @@ const App = () => {
 
           <div className="stats-grid">
             <div className="stat-card">
+              <div className="stat-number">2</div>
+              <p className="stat-label">Languages Focused</p>
+              <p className="stat-detail">Katkari & Warli</p>
+            </div>
+            <div className="stat-card">
               <div className="stat-number">500+</div>
-              <p className="stat-label">Languages Documented</p>
+              <p className="stat-label">Speakers Reached</p>
             </div>
             <div className="stat-card">
-              <div className="stat-number">10K+</div>
-              <p className="stat-label">Recordings Made</p>
-            </div>
-            <div className="stat-card">
-              <div className="stat-number">50+</div>
-              <p className="stat-label">Communities Served</p>
+              <div className="stat-number">2000+</div>
+              <p className="stat-label">Minutes Recorded</p>
             </div>
             <div className="stat-card">
               <div className="stat-number">100%</div>
-              <p className="stat-label">Data Preserved</p>
+              <p className="stat-label">Community Owned</p>
             </div>
           </div>
         </div>
@@ -419,16 +415,16 @@ const App = () => {
 
           <div className="testimonials-grid">
             <div className="testimonial-card">
-              <p className="testimonial-text">"BhashaSetu has helped us preserve our language for future generations. This is invaluable."</p>
-              <p className="testimonial-author">— Community Elder</p>
+              <p className="testimonial-text">"Our Warli stories are now being heard by the world. Our children can learn from their grandparents without fear of losing our language."</p>
+              <p className="testimonial-author">— Warli Community Elder</p>
             </div>
             <div className="testimonial-card">
-              <p className="testimonial-text">"The technology is so simple that even my grandmother can use it. That's the real innovation here."</p>
-              <p className="testimonial-author">— Village Representative</p>
+              <p className="testimonial-text">"Katkari has been spoken for generations, but nobody was recording it. BhashaSetu finally gave us a way to save it for our grandchildren."</p>
+              <p className="testimonial-author">— Katkari Speaker</p>
             </div>
             <div className="testimonial-card">
-              <p className="testimonial-text">"We've documented stories that would have been lost forever. BhashaSetu gave us hope."</p>
-              <p className="testimonial-author">— School Principal</p>
+              <p className="testimonial-text">"These are teenagers saving our languages. They understand our needs better than big organizations. This is our future."</p>
+              <p className="testimonial-author">— Community Leader</p>
             </div>
           </div>
         </div>
@@ -518,19 +514,19 @@ const App = () => {
 
           <div className="stories-grid">
             <div className="story-card">
-              <h3>The Warli Language Archive</h3>
+              <h3>Warli Stories Preserved</h3>
               <p className="story-date">2024</p>
-              <p>We recorded 200+ hours of Warli speakers sharing stories, songs, and knowledge. The complete archive is now accessible to students and researchers worldwide.</p>
+              <p>We recorded 100+ hours of authentic Warli speakers sharing tribal stories, songs, and cultural wisdom. Their voices are now preserved forever, accessible to Warli youth worldwide.</p>
             </div>
             <div className="story-card">
-              <h3>Village School Partnership</h3>
-              <p className="story-date">2023</p>
-              <p>A school in Maharashtra connected 50+ students with elderly speakers of an endangered language. Students learned culture, elders felt valued.</p>
+              <h3>Katkari Language Initiative</h3>
+              <p className="story-date">2024</p>
+              <p>Started documenting Katkari language with 30+ speakers across Western India. Created a living archive that helps new generations connect with their roots and identity.</p>
             </div>
             <div className="story-card">
-              <h3>Museum Digital Collection</h3>
+              <h3>Made By Teenagers, For Communities</h3>
               <p className="story-date">2024</p>
-              <p>A regional museum created a digital archive of 5 languages with BhashaSetu. Now open to the public and generating research interest globally.</p>
+              <p>A team of high school students built hardware and software to solve a real problem. Katkari and Warli communities trusted them to preserve what matters most.</p>
             </div>
           </div>
         </div>

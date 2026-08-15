@@ -642,6 +642,25 @@ body {
   background: transparent;
 }
 
+.language-tag.featured {
+  background: linear-gradient(135deg, #6B7E9E, #8B9EBE);
+  color: #F5F3F0;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(107, 126, 158, 0.3);
+}
+
+.language-description {
+  margin-top: 16px;
+  color: #6B6B6B;
+  font-size: 0.95em;
+  line-height: 1.7;
+  font-style: italic;
+}
+
+.website.dark-mode .language-description {
+  color: #AAAAAA;
+}
+
 /* ===== TECH GRID ===== */
 .tech-grid {
   display: grid;
@@ -936,6 +955,17 @@ body {
   color: #6B6B6B;
   font-weight: 600;
   font-size: 1.05em;
+  margin-bottom: 8px;
+}
+
+.stat-detail {
+  color: #6B7E9E;
+  font-weight: 700;
+  font-size: 0.95em;
+}
+
+.website.dark-mode .stat-detail {
+  color: #8B9EBE;
 }
 
 .website.dark-mode .stat-label {
