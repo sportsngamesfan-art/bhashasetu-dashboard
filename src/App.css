@@ -1184,42 +1184,63 @@ footer p {
     font-size: 14px;
   }
 
+  body {
+    padding-top: 0;
+  }
+
   .nav-brand {
-    font-size: 1.3em;
+    font-size: 1.2em;
     letter-spacing: 0.5px;
   }
 
   .navbar {
-    padding: 12px 0;
+    padding: 10px 0;
+    z-index: 1001;
+  }
+
+  .navbar.scrolled {
+    padding: 8px 0;
   }
 
   .nav-container {
     padding: 0 12px;
     gap: 8px;
+    flex-wrap: wrap;
   }
 
   .nav-links {
-    gap: 12px;
+    gap: 8px;
+    width: 100%;
+    order: 3;
   }
 
   .nav-links a {
-    font-size: 0.9em;
+    font-size: 0.85em;
+    padding: 4px 0;
+  }
+
+  .nav-actions {
+    order: 2;
+    gap: 8px;
   }
 
   .theme-toggle {
-    width: 36px;
-    height: 36px;
-    font-size: 1em;
+    width: 32px;
+    height: 32px;
+    font-size: 0.9em;
+    flex-shrink: 0;
   }
 
   .cta-button {
-    padding: 9px 16px;
-    font-size: 0.9em;
-    min-height: 40px;
+    padding: 8px 12px;
+    font-size: 0.8em;
+    min-height: 36px;
+    flex-shrink: 0;
   }
 
   .section {
     padding: 50px 16px;
+    margin-top: 0;
   }
 
   .section-header {
@@ -1232,45 +1253,64 @@ footer p {
   }
 
   .section-header p {
-    font-size: 1em;
+    font-size: 0.95em;
   }
 
   .section::before {
     width: 60px;
     height: 2px;
+    top: 20px;
   }
 
   .hero {
-    padding: 120px 16px 60px;
+    padding: 80px 16px 50px;
+    margin-top: 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero::before,
+  .hero::after {
+    display: none;
+  }
+
+  .hero-wrapper {
+    position: relative;
+    z-index: 2;
   }
 
   .hero-title {
-    font-size: 1.8em;
+    font-size: 1.6em;
     margin-bottom: 16px;
-    line-height: 1.3;
+    line-height: 1.2;
+    word-spacing: 0.1em;
   }
 
   .hero-subtitle {
-    font-size: 0.95em;
-    margin-bottom: 32px;
-    padding: 0 8px;
+    font-size: 0.9em;
+    margin-bottom: 28px;
+    padding: 0;
+    line-height: 1.6;
   }
 
   .hero-buttons {
     flex-direction: column;
     gap: 12px;
+    margin-top: 24px;
   }
 
   .hero-buttons .btn {
     width: 100%;
     max-width: none;
-    padding: 12px 24px;
+    padding: 12px 20px;
     min-height: 44px;
+    font-size: 0.95em;
   }
 
   .scroll-indicator {
-    bottom: 20px;
-    font-size: 1.5em;
+    bottom: 16px;
+    font-size: 1.3em;
+    display: none;
   }
 
   .card,
