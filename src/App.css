@@ -12,18 +12,19 @@ html {
 
 /* ===== COLOR PALETTE ===== */
 :root {
-  --bg-dark: #0F0E0C;
-  --bg-warm: #1A1815;
-  --bg-burnt: #2D2420;
-  --card-parchment: #FAFAF7;
-  --card-aged: #F5F1E8;
-  --accent-terra: #B8563C;
-  --accent-clay: #8B4423;
-  --accent-forest: #4A5D3A;
-  --accent-gold: #9C8B5C;
-  --text-ink: #1A1815;
-  --text-cream: #F8F7F4;
-  --text-muted: #6B6B6B;
+  --bg-dark: #1B1A17;
+  --bg-warm: #2B231D;
+  --bg-burnt: #4E342E;
+  --card-parchment: #F5E6C8;
+  --card-aged: #E9D8B4;
+  --accent-terra: #C46A3A;
+  --accent-clay: #A64B2A;
+  --accent-gold: #D4A574;
+  --accent-forest: #556B2F;
+  --accent-mustard: #C49A2C;
+  --text-ink: #2A2118;
+  --text-cream: #F8F3E7;
+  --text-light: #E8E2D4;
 }
 
 body {
@@ -130,11 +131,17 @@ body::after {
   white-space: nowrap;
   font-family: 'Playfair Display', serif;
   flex-shrink: 0;
-  color: var(--accent-terra);
+  background: linear-gradient(90deg, var(--accent-mustard), var(--accent-terra));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .brand-text {
-  color: var(--accent-terra);
+  background: linear-gradient(90deg, var(--accent-mustard), var(--accent-terra));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .nav-links {
@@ -147,7 +154,7 @@ body::after {
 
 .nav-links a {
   text-decoration: none;
-  color: var(--text-cream);
+  color: var(--accent-mustard);
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
   font-size: 0.9em;
@@ -163,12 +170,12 @@ body::after {
   left: 0;
   width: 0;
   height: 2px;
-  background: var(--accent-terra);
+  background: var(--accent-mustard);
   transition: width 0.2s ease;
 }
 
 .nav-links a:hover {
-  color: var(--accent-terra);
+  color: #E5B547;
 }
 
 .nav-links a:hover::after {
@@ -212,7 +219,7 @@ body::after {
 
 .cta-button {
   padding: 10px 20px;
-  background: var(--accent-terra);
+  background: linear-gradient(135deg, var(--accent-terra), var(--accent-clay));
   color: var(--text-cream);
   border: none;
   border-radius: 4px;
@@ -221,7 +228,7 @@ body::after {
   font-size: 0.9em;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 8px rgba(184, 86, 60, 0.2);
+  box-shadow: 0 2px 8px rgba(196, 106, 58, 0.3);
   white-space: nowrap;
   letter-spacing: 0.3px;
 }
@@ -268,16 +275,16 @@ body::after {
 }
 
 .btn-primary {
-  background: var(--accent-terra);
+  background: linear-gradient(135deg, var(--accent-terra), var(--accent-clay));
   color: var(--text-cream);
-  box-shadow: 0 4px 12px rgba(184, 86, 60, 0.25);
-  border: none;
+  box-shadow: 0 4px 12px rgba(196, 106, 58, 0.3);
+  border: 2px solid var(--accent-terra);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(184, 86, 60, 0.35);
-  background: #a84a32;
+  box-shadow: 0 8px 20px rgba(196, 106, 58, 0.4);
+  background: linear-gradient(135deg, #D17A4A, #B8563C);
 }
 
 .btn-secondary {
@@ -325,8 +332,8 @@ body::after {
   transform: translateX(-50%);
   width: 120px;
   height: 2px;
-  background: linear-gradient(90deg, transparent, var(--accent-terra), transparent);
-  opacity: 0.6;
+  background: linear-gradient(90deg, transparent, var(--accent-mustard), transparent);
+  opacity: 0.7;
 }
 
 .section-container {
@@ -345,7 +352,10 @@ body::after {
   font-family: 'Playfair Display', serif;
   font-size: 3em;
   margin-bottom: 16px;
-  color: var(--accent-terra);
+  background: linear-gradient(90deg, var(--accent-mustard), var(--accent-terra));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-weight: 700;
   letter-spacing: -0.5px;
 }
@@ -423,7 +433,7 @@ body::after {
 }
 
 .hero-title .highlight {
-  background: linear-gradient(90deg, var(--accent-terra), var(--accent-mustard));
+  background: linear-gradient(90deg, var(--accent-mustard), #E5B547);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -629,7 +639,10 @@ body::after {
   font-family: 'Playfair Display', serif;
   font-size: 2.8em;
   font-weight: 700;
-  color: var(--accent-terra);
+  background: linear-gradient(90deg, var(--accent-mustard), var(--accent-terra));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 8px;
 }
 
@@ -661,6 +674,7 @@ body::after {
   margin-bottom: 16px;
   position: relative;
   padding-left: 20px;
+  line-height: 1.6;
 }
 
 .testimonial-text::before {
@@ -669,15 +683,18 @@ body::after {
   left: 0;
   top: -8px;
   font-size: 2em;
-  font-family: 'Caveat', cursive;
-  color: var(--accent-terra);
-  opacity: 0.5;
+  font-family: 'Playfair Display', serif;
+  color: var(--accent-mustard);
+  opacity: 0.4;
 }
 
 .testimonial-author {
-  font-family: 'Patrick Hand', cursive;
+  font-family: 'Poppins', sans-serif;
   font-weight: 600;
-  color: var(--accent-terra);
+  background: linear-gradient(90deg, var(--accent-mustard), var(--accent-terra));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .testimonial-role {
@@ -739,14 +756,14 @@ body::after {
 /* ===== FEATURED LANGUAGE TAGS ===== */
 .featured-language-tag {
   display: inline-block;
-  background: linear-gradient(135deg, var(--accent-terra), var(--accent-mustard));
+  background: linear-gradient(135deg, var(--accent-mustard), var(--accent-terra));
   color: var(--text-cream);
   padding: 8px 16px;
   border-radius: 20px;
   font-size: 0.85em;
   font-weight: 600;
   margin-top: 12px;
-  font-family: 'Patrick Hand', cursive;
+  font-family: 'Poppins', sans-serif;
   box-shadow: 0 4px 12px rgba(196, 106, 58, 0.3);
 }
 
@@ -819,7 +836,10 @@ body::after {
 .team-role {
   font-family: 'Poppins', sans-serif;
   font-size: 0.95em;
-  color: var(--accent-terra);
+  background: linear-gradient(90deg, var(--accent-mustard), var(--accent-terra));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-weight: 600;
   margin-bottom: 12px;
   letter-spacing: 0.3px;
