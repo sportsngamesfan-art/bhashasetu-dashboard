@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Kalam:wght@400;700&family=Patrick+Hand&family=Inter:wght@400;500;600;700&family=Nunito+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lora:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap');
 
 * {
   margin: 0;
@@ -12,26 +12,29 @@ html {
 
 /* ===== COLOR PALETTE ===== */
 :root {
-  --bg-dark: #1B1A17;
-  --bg-warm: #2B231D;
-  --bg-burnt: #4E342E;
-  --card-parchment: #F5E6C8;
-  --card-aged: #E9D8B4;
-  --accent-terra: #C46A3A;
-  --accent-clay: #A64B2A;
-  --accent-forest: #556B2F;
-  --accent-mustard: #C49A2C;
-  --text-ink: #2A2118;
-  --text-cream: #F8F3E7;
+  --bg-dark: #0F0E0C;
+  --bg-warm: #1A1815;
+  --bg-burnt: #2D2420;
+  --card-parchment: #FAFAF7;
+  --card-aged: #F5F1E8;
+  --accent-terra: #B8563C;
+  --accent-clay: #8B4423;
+  --accent-forest: #4A5D3A;
+  --accent-gold: #9C8B5C;
+  --text-ink: #1A1815;
+  --text-cream: #F8F7F4;
+  --text-muted: #6B6B6B;
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Lora', serif;
   background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-warm) 50%, var(--bg-burnt) 100%);
   background-attachment: fixed;
   color: var(--text-cream);
-  line-height: 1.6;
+  line-height: 1.7;
   position: relative;
+  font-size: 16px;
+  font-weight: 400;
 }
 
 /* Parchment texture background */
@@ -120,20 +123,18 @@ body::after {
 }
 
 .nav-brand {
-  font-size: 1.3em;
+  font-size: 1.2em;
   font-weight: 700;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
   cursor: pointer;
   white-space: nowrap;
-  font-family: 'Caveat', cursive;
+  font-family: 'Playfair Display', serif;
   flex-shrink: 0;
+  color: var(--accent-terra);
 }
 
 .brand-text {
-  background: linear-gradient(90deg, var(--accent-terra), var(--accent-mustard));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--accent-terra);
 }
 
 .nav-links {
@@ -147,7 +148,7 @@ body::after {
 .nav-links a {
   text-decoration: none;
   color: var(--text-cream);
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 500;
   font-size: 0.9em;
   position: relative;
@@ -210,18 +211,19 @@ body::after {
 }
 
 .cta-button {
-  padding: 9px 18px;
-  background: linear-gradient(135deg, var(--accent-terra), var(--accent-clay));
+  padding: 10px 20px;
+  background: var(--accent-terra);
   color: var(--text-cream);
   border: none;
-  border-radius: 3px;
-  font-family: 'Patrick Hand', cursive;
+  border-radius: 4px;
+  font-family: 'Poppins', sans-serif;
   font-weight: 600;
   font-size: 0.9em;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 8px rgba(196, 106, 58, 0.3);
+  box-shadow: 0 2px 8px rgba(184, 86, 60, 0.2);
   white-space: nowrap;
+  letter-spacing: 0.3px;
 }
 
 .cta-button:hover {
@@ -235,15 +237,15 @@ body::after {
 
 /* ===== BUTTONS ===== */
 .btn {
-  padding: 12px 28px;
+  padding: 11px 28px;
   border: none;
-  border-radius: 3px;
+  border-radius: 4px;
   font-weight: 600;
   font-size: 0.95em;
   cursor: pointer;
-  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  font-family: 'Patrick Hand', cursive;
-  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.4px;
   position: relative;
   overflow: hidden;
 }
@@ -255,9 +257,9 @@ body::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+  background: rgba(255, 255, 255, 0.15);
   transform: translateX(-100%);
-  transition: transform 0.6s;
+  transition: transform 0.4s;
   pointer-events: none;
 }
 
@@ -266,33 +268,29 @@ body::after {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--accent-terra), var(--accent-clay));
+  background: var(--accent-terra);
   color: var(--text-cream);
-  box-shadow:
-    0 0 0 2px var(--text-cream),
-    inset -2px -2px 4px rgba(0, 0, 0, 0.2),
-    0 4px 12px rgba(196, 106, 58, 0.3);
-  border: 2px solid var(--accent-terra);
+  box-shadow: 0 4px 12px rgba(184, 86, 60, 0.25);
+  border: none;
 }
 
 .btn-primary:hover {
-  transform: translateY(-3px) rotate(-1deg);
-  box-shadow:
-    0 0 0 2px var(--text-cream),
-    0 8px 20px rgba(196, 106, 58, 0.4),
-    inset -2px -2px 4px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(184, 86, 60, 0.35);
+  background: #a84a32;
 }
 
 .btn-secondary {
   background: transparent;
   color: var(--accent-terra);
-  border: 2px dashed var(--accent-terra);
+  border: 2px solid var(--accent-terra);
   box-shadow: none;
 }
 
 .btn-secondary:hover {
-  background: rgba(196, 106, 58, 0.1);
-  transform: translateY(-2px) rotate(1deg);
+  background: var(--accent-terra);
+  color: var(--text-cream);
+  transform: translateY(-2px);
 }
 
 .website.light-mode .btn-primary {
@@ -344,14 +342,12 @@ body::after {
 }
 
 .section-header h2 {
-  font-family: 'Caveat', cursive;
-  font-size: 3.5em;
+  font-family: 'Playfair Display', serif;
+  font-size: 3em;
   margin-bottom: 16px;
-  background: linear-gradient(90deg, var(--accent-terra), var(--accent-mustard));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--accent-terra);
   font-weight: 700;
+  letter-spacing: -0.5px;
 }
 
 .website.light-mode .section-header h2 {
@@ -413,12 +409,13 @@ body::after {
 }
 
 .hero-title {
-  font-family: 'Caveat', cursive;
-  font-size: 3.8em;
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5em;
   font-weight: 700;
   margin-bottom: 20px;
   color: var(--text-cream);
-  line-height: 1.15;
+  line-height: 1.2;
+  letter-spacing: -0.3px;
 }
 
 .website.light-mode .hero-title {
@@ -551,16 +548,19 @@ body::after {
 }
 
 .problem-item h3 {
-  font-family: 'Patrick Hand', cursive;
-  font-size: 1.4em;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.3em;
   margin-bottom: 12px;
   color: var(--text-ink);
+  font-weight: 600;
+  letter-spacing: 0.3px;
 }
 
 .problem-item p {
   color: var(--text-ink);
   line-height: 1.7;
   font-size: 0.95em;
+  font-family: 'Lora', serif;
 }
 
 /* ===== GRID LAYOUTS ===== */
@@ -626,21 +626,19 @@ body::after {
 }
 
 .stat-number {
-  font-family: 'Caveat', cursive;
-  font-size: 3em;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8em;
   font-weight: 700;
-  background: linear-gradient(90deg, var(--accent-terra), var(--accent-mustard));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--accent-terra);
   margin-bottom: 8px;
 }
 
 .stat-label {
-  font-family: 'Patrick Hand', cursive;
-  font-size: 1.1em;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1em;
   color: var(--text-ink);
   font-weight: 600;
+  letter-spacing: 0.3px;
 }
 
 .stat-description {
@@ -700,13 +698,14 @@ body::after {
   padding: 20px;
   background: var(--card-aged);
   border-bottom: 2px solid var(--text-ink);
-  font-family: 'Patrick Hand', cursive;
+  font-family: 'Poppins', sans-serif;
   font-weight: 600;
   color: var(--text-ink);
   display: flex;
   justify-content: space-between;
   align-items: center;
   transition: background 0.3s ease;
+  letter-spacing: 0.3px;
 }
 
 .faq-item.active .faq-question {
@@ -809,18 +808,21 @@ body::after {
 }
 
 .team-name {
-  font-family: 'Patrick Hand', cursive;
-  font-size: 1.4em;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.25em;
   color: var(--text-ink);
   margin-bottom: 8px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
 }
 
 .team-role {
-  font-family: 'Kalam', cursive;
-  font-size: 1em;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95em;
   color: var(--accent-terra);
   font-weight: 600;
   margin-bottom: 12px;
+  letter-spacing: 0.3px;
 }
 
 .team-description {
@@ -843,11 +845,12 @@ body::after {
 }
 
 .contact-container h3 {
-  font-family: 'Patrick Hand', cursive;
+  font-family: 'Playfair Display', serif;
   font-size: 1.8em;
   color: var(--text-ink);
   margin-bottom: 24px;
   text-align: center;
+  font-weight: 700;
 }
 
 .contact-container p {
@@ -877,19 +880,22 @@ body::after {
 }
 
 .modal-content h2 {
-  font-family: 'Caveat', cursive;
-  font-size: 2.5em;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2em;
   color: var(--text-ink);
   margin-bottom: 24px;
+  font-weight: 700;
 }
 
 .modal-content label {
   display: block;
-  font-family: 'Patrick Hand', cursive;
+  font-family: 'Poppins', sans-serif;
   font-weight: 600;
   color: var(--text-ink);
   margin-bottom: 8px;
   margin-top: 16px;
+  letter-spacing: 0.3px;
+  font-size: 0.95em;
 }
 
 .modal-content input,
